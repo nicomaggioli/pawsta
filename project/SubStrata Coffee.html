@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SUB/STRATA — Specialty Coffee, Single Origin</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  --bg: #F2F0EA;
+  --ink: #0A0A0A;
+  --line: #0A0A0A;
+  --muted: #6B6B6B;
+  --accent: #FF4A1C;
+  --paper: #FFFCF4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif { font-family: "Instrument Serif", Georgia, serif; }
+
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+
+/* === GRID OVERLAY (decorative) === */
+.frame {
+  border: 1px solid var(--line);
+  margin: 12px;
+  min-height: calc(100vh - 24px);
+}
+
+/* === TICKER === */
+.ticker {
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 9px 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ticker-track {
+  display: inline-flex;
+  gap: 48px;
+  animation: marquee 60s linear infinite;
+  padding-left: 48px;
+}
+.ticker-track span { display: inline-flex; align-items: center; gap: 14px; }
+.ticker-track .sq { display: inline-block; width: 6px; height: 6px; background: var(--accent); }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* === NAV === */
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 50;
+}
+.nav > * { padding: 16px 20px; border-right: 1px solid var(--line); }
+.nav > *:last-child { border-right: none; }
+.nav-brand {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-brand .mark {
+  width: 16px; height: 16px;
+  background: var(--accent);
+  display: inline-block;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.nav-links a {
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.nav-cart:hover { color: var(--accent); }
+.nav-cart .badge {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2px 7px;
+  font-size: 11px;
+}
+
+/* === HERO === */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+  min-height: 78vh;
+}
+.hero-left {
+  padding: 56px 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+.hero-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 60px;
+}
+.hero-title {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-size: clamp(72px, 10vw, 168px);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+.hero-title .small {
+  font-style: normal;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  vertical-align: top;
+  letter-spacing: 0;
+  margin-left: 8px;
+  color: var(--accent);
+}
+.hero-title b {
+  font-weight: 400;
+  font-style: normal;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: -0.02em;
+}
+.hero-sub {
+  margin-top: 36px;
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 480px;
+  color: var(--ink);
+}
+.hero-sub .accent { color: var(--accent); }
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 48px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.hero-right {
+  position: relative;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  overflow: hidden;
+}
+.bag {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bag-svg {
+  width: 70%;
+  height: 80%;
+}
+.hero-right .corner {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  color: var(--paper);
+  opacity: 0.7;
+}
+.hero-right .lot {
+  font-family: "Instrument Serif", serif;
+  font-size: 64px;
+  font-style: italic;
+  line-height: 1;
+  z-index: 2;
+}
+.hero-right .stamp {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  z-index: 2;
+  animation: rotate 24s linear infinite;
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+.hero-right .stamp-inner {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,252,244,0.3);
+}
+
+/* === SPECS BAR === */
+.specs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+.spec {
+  padding: 22px 24px;
+  border-right: 1px solid var(--line);
+}
+.spec:last-child { border-right: none; }
+.spec dt {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.spec dd {
+  font-family: "Instrument Serif", serif;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.spec dd .unit {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: 4px;
+}
+
+/* === SECTION === */
+.section {
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+}
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  border-bottom: 1px solid var(--line);
+}
+.section-head > * { padding: 18px 24px; border-right: 1px solid var(--line); }
+.section-head > *:last-child { border-right: none; }
+.section-num {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.section-name {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1;
+}
+.section-meta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--muted);
+}
+
+/* === ROAST PROFILE === */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+.profile-left {
+  padding: 48px;
+  border-right: 1px solid var(--line);
+}
+.profile-left h3 {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 56px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+.profile-left p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 460px;
+}
+.profile-right {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.roast-meter {
+  border: 1px solid var(--line);
+  padding: 24px;
+}
+.roast-meter h4 {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+.roast-meter h4 .val { color: var(--accent); }
+.roast-bar {
+  height: 4px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  position: relative;
+  margin-bottom: 8px;
+}
+.roast-bar .fill {
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: var(--w, 35%);
+  background: var(--accent);
+}
+.roast-bar .marks {
+  position: absolute;
+  top: -12px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.roast-bar .marks span { transform: translateX(-50%); }
+.roast-bar .marks span:first-child { transform: none; }
+.roast-bar .marks span:last-child { transform: translateX(0); margin-left: auto; }
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+}
+.note {
+  padding: 18px 20px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.note:nth-child(even) { border-right: none; }
+.note:nth-last-child(-n+2) { border-bottom: none; }
+.note .num { font-size: 10px; color: var(--muted); letter-spacing: 0.14em; }
+.note .label {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1.05;
+  margin-top: 6px;
+}
+
+/* === ORIGIN === */
+.origin {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.origin-image {
+  background: var(--ink);
+  position: relative;
+  border-right: 1px solid var(--line);
+  min-height: 520px;
+  overflow: hidden;
+}
+.origin-image .topo {
+  position: absolute;
+  inset: 0;
+}
+.origin-image .pin {
+  position: absolute;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--paper);
+  box-shadow: 0 0 0 6px rgba(255,74,28,0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(255,74,28,0.2); }
+  50% { box-shadow: 0 0 0 14px rgba(255,74,28,0); }
+}
+.origin-image .label {
+  position: absolute;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 8px 12px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.origin-text {
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+.origin-text h3 {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 64px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+.origin-text .farmer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  margin-top: 8px;
+}
+.farmer-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 24px;
+}
+.farmer-info .name { font-weight: 700; font-size: 13px; }
+.farmer-info .role { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
+.origin-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid var(--line);
+  margin-top: 8px;
+}
+.origin-stats > div {
+  padding: 16px;
+  border-right: 1px solid var(--line);
+}
+.origin-stats > div:last-child { border-right: none; }
+.origin-stats .l { font-size: 10px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; }
+.origin-stats .v { font-family: "Instrument Serif", serif; font-style: italic; font-size: 22px; margin-top: 4px; }
+
+/* === PRODUCTS === */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.prod {
+  border-right: 1px solid var(--line);
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s;
+}
+.prod:last-child { border-right: none; }
+.prod:hover { background: var(--paper); }
+.prod-tag {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.prod-tag .accent { color: var(--accent); }
+.prod-img {
+  aspect-ratio: 1 / 1;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.prod-img svg { width: 50%; height: 75%; }
+.prod-img .scan {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(0deg, transparent 0, transparent 4px, rgba(10,10,10,0.04) 4px, rgba(10,10,10,0.04) 5px);
+  pointer-events: none;
+}
+.prod-info {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.prod-info .name {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.prod-info .meta {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.prod-info .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 10px;
+  border-top: 1px dashed var(--line);
+  padding-top: 12px;
+}
+.prod-info .price {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 28px;
+}
+.prod-info .price .from {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  font-style: normal;
+}
+.prod-add {
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.prod-add:hover { background: var(--accent); }
+
+/* === SUBSCRIBE === */
+.sub-block {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+}
+.sub-left { padding: 64px 48px; border-right: 1px solid rgba(255,252,244,0.15); }
+.sub-left h2 {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.sub-left h2 .accent { color: var(--accent); }
+.sub-left p { font-size: 14px; line-height: 1.6; max-width: 480px; opacity: 0.75; margin-bottom: 24px; }
+.sub-right {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+}
+.sub-card {
+  border: 1px solid rgba(255,252,244,0.2);
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.sub-card:hover { border-color: var(--accent); background: rgba(255,74,28,0.04); }
+.sub-card.active { border-color: var(--accent); }
+.sub-card .freq {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 36px;
+  line-height: 1;
+}
+.sub-card .desc {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.sub-card .price-col {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 28px;
+  text-align: right;
+}
+.sub-card .price-col .save {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-style: normal;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: block;
+}
+.sub-card .radio {
+  width: 16px; height: 16px;
+  border: 1px solid var(--paper);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+.sub-card.active .radio { border-color: var(--accent); }
+.sub-card.active .radio::after {
+  content: ''; position: absolute; inset: 3px;
+  border-radius: 50%; background: var(--accent);
+}
+
+/* === BREW === */
+.brew {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.brew-step {
+  padding: 40px 28px;
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+.brew-step:last-child { border-right: none; }
+.brew-step .num {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 96px;
+  line-height: 0.9;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.brew-step .title {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.brew-step .body { font-size: 13px; line-height: 1.55; color: var(--muted); }
+.brew-step .ratio {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 20px;
+  margin-top: 12px;
+  border-top: 1px dashed var(--line);
+  padding-top: 12px;
+}
+
+/* === FOOTER === */
+.foot {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 64px 48px 32px;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,252,244,0.15);
+}
+.foot h4 {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  color: var(--accent);
+}
+.foot ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.foot a { color: var(--paper); opacity: 0.65; text-decoration: none; font-size: 13px; }
+.foot a:hover { opacity: 1; color: var(--accent); }
+.foot-name {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+.foot-bottom {
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255,252,244,0.5);
+}
+
+/* === BIG TYPE === */
+.big-type {
+  padding: 96px 48px;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+.big-type h2 {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(64px, 10vw, 200px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+.big-type h2 .accent { color: var(--accent); }
+.big-type h2 .stroke {
+  -webkit-text-stroke: 1px var(--ink);
+  color: transparent;
+}
+.big-type .meta {
+  margin-top: 32px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+/* === TOAST === */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 20px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid var(--accent);
+  z-index: 200;
+  animation: rise 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toast::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--accent);
+  display: inline-block;
+}
+@keyframes rise {
+  from { transform: translate(-50%, 16px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .hero, .origin, .sub-block, .profile-grid { grid-template-columns: 1fr; }
+  .hero-left, .profile-left, .origin-image, .sub-left { border-right: none; border-bottom: 1px solid var(--line); }
+  .specs { grid-template-columns: repeat(2, 1fr); }
+  .specs .spec { border-bottom: 1px solid var(--line); }
+  .products-grid { grid-template-columns: 1fr; }
+  .prod { border-right: none; border-bottom: 1px solid var(--line); }
+  .brew { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  .nav { grid-template-columns: 1fr 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+</style>
+</head>
+<body>
+<div class="ticker">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<header class="nav">
+  <div class="nav-brand"><span class="mark"></span> SUB/STRATA</div>
+  <nav class="nav-links">
+    <a onclick="scrollToId('coffees')">Coffees</a>
+    <a onclick="scrollToId('origin')">Origin</a>
+    <a onclick="scrollToId('subscribe')">Subscribe</a>
+    <a onclick="scrollToId('brew')">Brew Guide</a>
+    <a onclick="scrollToId('about')">About</a>
+  </nav>
+  <div class="nav-cart" onclick="addQuick(null)">CART <span class="badge" id="cart-badge">00</span></div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-meta">
+      <span>EST. 2019 · BROOKLYN, NY</span>
+      <span>VOL. 04 · LOT 027</span>
+    </div>
+    <h1 class="hero-title">
+      <span>Coffee,</span><br/>
+      <em>not</em><br/>
+      <b>compromised<span class="small">/01</span></b>.
+    </h1>
+    <p class="hero-sub">
+      A small-batch roastery in Bushwick. We source single-origin lots directly from <span class="accent">3 farms across 3 continents</span> and roast them in batches of 12 kilos or less. No blends. No filler. No nonsense.
+    </p>
+    <div class="hero-bottom">
+      <span>↓ scroll for the goods</span>
+      <span>04.30.26</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="corner">
+      <span>SUB/STRATA</span>
+      <span>FEATURED LOT</span>
+    </div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+      <svg class="bag-svg" viewBox="0 0 200 280" fill="none">
+        <path d="M 30 50 L 30 260 L 170 260 L 170 50 L 150 30 L 50 30 Z" fill="#1a1a1a" stroke="#FFFCF4" stroke-width="1"/>
+        <rect x="50" y="100" width="100" height="120" fill="#0A0A0A" stroke="#FFFCF4" stroke-width="0.8"/>
+        <text x="100" y="130" text-anchor="middle" fill="#FFFCF4" font-family="Instrument Serif" font-style="italic" font-size="24">Yirgacheffe</text>
+        <text x="100" y="150" text-anchor="middle" fill="#FFFCF4" font-family="JetBrains Mono" font-size="6" letter-spacing="2">SINGLE ORIGIN · ETHIOPIA</text>
+        <line x1="50" y1="160" x2="150" y2="160" stroke="#FFFCF4" stroke-width="0.5" opacity="0.4"/>
+        <text x="60" y="175" fill="#FFFCF4" font-family="JetBrains Mono" font-size="5" letter-spacing="1">PROCESS</text>
+        <text x="140" y="175" text-anchor="end" fill="#FFFCF4" font-family="JetBrains Mono" font-size="5" letter-spacing="1">WASHED</text>
+        <text x="60" y="188" fill="#FFFCF4" font-family="JetBrains Mono" font-size="5" letter-spacing="1">ALTITUDE</text>
+        <text x="140" y="188" text-anchor="end" fill="#FFFCF4" font-family="JetBrains Mono" font-size="5" letter-spacing="1">2100M</text>
+        <text x="60" y="201" fill="#FFFCF4" font-family="JetBrains Mono" font-size="5" letter-spacing="1">ROAST</text>
+        <text x="140" y="201" text-anchor="end" fill="#FFFCF4" font-family="JetBrains Mono" font-size="5" letter-spacing="1">LIGHT</text>
+        <text x="100" y="218" text-anchor="middle" fill="#FF4A1C" font-family="JetBrains Mono" font-size="5" letter-spacing="3">JASMINE / BERGAMOT / PEACH</text>
+        <rect x="80" y="20" width="40" height="14" fill="#FF4A1C"/>
+        <text x="100" y="30" text-anchor="middle" fill="#0A0A0A" font-family="JetBrains Mono" font-size="6" font-weight="700" letter-spacing="2">12 OZ</text>
+      </svg>
+    </div>
+    <div class="corner" style="z-index:2;">
+      <span>250G WHOLE BEAN</span>
+      <span>$24</span>
+    </div>
+    <div class="stamp">
+      <div class="stamp-inner"></div>
+      Roasted to order · Shipped<br/>same day · Roasted to
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<dl class="specs">
+  <div class="spec"><dt>Roast Date</dt><dd>04.27.26</dd></div>
+  <div class="spec"><dt>Cup Score</dt><dd>89.5<span class="unit">/100</span></dd></div>
+  <div class="spec"><dt>Process</dt><dd>Washed</dd></div>
+  <div class="spec"><dt>Altitude</dt><dd>2100<span class="unit">m</span></dd></div>
+  <div class="spec"><dt>Variety</dt><dd>Heirloom</dd></div>
+</dl>
+
+<!-- ROAST PROFILE -->
+<section class="section" id="profile">
+  <div class="section-head">
+    <div class="section-num">§01 / Profile</div>
+    <div class="section-name"><em>Roast notes</em> & cupping</div>
+    <div class="section-meta">04.30.26 — 12kg batch</div>
+  </div>
+  <div class="profile-grid">
+    <div class="profile-left">
+      <h3>Bright. Floral. <em>Annoyingly</em> good.</h3>
+      <p>Sourced from the Konga washing station in the Yirgacheffe zone of southern Ethiopia, this lot of heirloom varietals was harvested in November and washed using the traditional 72-hour fermentation method.</p>
+      <p>We roast it light — first crack only — to preserve the volatile aromatics that make Ethiopian coffee taste like nothing else on earth. Expect jasmine on the nose, a syrupy bergamot body, and a long peach finish that sticks around for a while.</p>
+      <p style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); letter-spacing: 0.04em;">Cupped by our Q-grader, M. Ito. Score: 89.5/100. Notes recorded 04.28.26.</p>
+    </div>
+    <div class="profile-right">
+      <div class="roast-meter">
+        <h4>ROAST LEVEL <span class="val">LIGHT — CITY</span></h4>
+        <div class="roast-bar">
+          <div class="fill" style="--w: 28%"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 14px; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);">
+          <span>LIGHT</span><span>MEDIUM</span><span>FULL CITY</span><span>DARK</span>
+        </div>
+      </div>
+      <div class="roast-meter">
+        <h4>BODY <span class="val">SYRUPY</span></h4>
+        <div class="roast-bar"><div class="fill" style="--w: 65%"></div></div>
+      </div>
+      <div class="roast-meter">
+        <h4>ACIDITY <span class="val">HIGH — CITRIC</span></h4>
+        <div class="roast-bar"><div class="fill" style="--w: 82%"></div></div>
+      </div>
+      <div class="notes">
+        <div class="note"><span class="num">/01</span><div class="label">Jasmine</div></div>
+        <div class="note"><span class="num">/02</span><div class="label"><em>Bergamot</em></div></div>
+        <div class="note"><span class="num">/03</span><div class="label">White peach</div></div>
+        <div class="note"><span class="num">/04</span><div class="label"><em>Honey</em></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG TYPE -->
+<section class="big-type">
+  <h2>Drink it <em>black</em>. Drink it <span class="accent">slow</span>.<br/><span class="stroke">Drink it like it cost something.</span></h2>
+  <div class="meta"><span>— Sub/Strata Roasters</span><span>EST. 2019</span><span>BROOKLYN, NY</span></div>
+</section>
+
+<!-- ORIGIN -->
+<section class="section" id="origin">
+  <div class="section-head">
+    <div class="section-num">§02 / Origin</div>
+    <div class="section-name"><em>Where</em> it's from</div>
+    <div class="section-meta">SIDAMA — ETHIOPIA</div>
+  </div>
+  <div class="origin">
+    <div class="origin-image">
+      <svg class="topo" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,252,244,0.06)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="600" height="600" fill="#0A0A0A"/>
+        <rect width="600" height="600" fill="url(#grid)"/>
+        <!-- topographic curves -->
+        <path d="M 50 200 Q 200 150 350 220 T 600 280" stroke="#FF4A1C" stroke-width="1" fill="none" opacity="0.5"/>
+        <path d="M 30 260 Q 180 210 330 280 T 600 340" stroke="#FFFCF4" stroke-width="0.5" fill="none" opacity="0.3"/>
+        <path d="M 60 320 Q 210 270 360 340 T 600 400" stroke="#FFFCF4" stroke-width="0.5" fill="none" opacity="0.3"/>
+        <path d="M 80 380 Q 230 330 380 400 T 600 460" stroke="#FFFCF4" stroke-width="0.5" fill="none" opacity="0.3"/>
+        <path d="M 100 440 Q 250 390 400 460 T 600 520" stroke="#FFFCF4" stroke-width="0.5" fill="none" opacity="0.3"/>
+        <!-- pin location -->
+        <circle cx="320" cy="300" r="80" fill="none" stroke="#FF4A1C" stroke-width="0.5" opacity="0.4"/>
+        <circle cx="320" cy="300" r="140" fill="none" stroke="#FF4A1C" stroke-width="0.3" opacity="0.2"/>
+      </svg>
+      <div class="pin" style="top: 50%; left: 53%;"></div>
+      <div class="label" style="top: calc(50% + 24px); left: 56%;">06°09'N — 38°12'E<br/>2100M ELEV.</div>
+      <div class="label" style="top: 24px; left: 24px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; padding: 12px 16px; text-transform: none; letter-spacing: 0;">Konga, <em>Ethiopia</em></div>
+    </div>
+    <div class="origin-text">
+      <div style="font-size: 11px; color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase;">— A note from the farm</div>
+      <h3>Two hundred small-<br/>holders. <em>One</em> lot.</h3>
+      <p>The Konga washing station processes coffee from over 200 smallholder farms within a 5-kilometer radius. Cherries are hand-sorted, depulped within 6 hours of harvest, and fermented in concrete tanks for 72 hours before sun-drying on raised beds.</p>
+      <p>We've been buying from Konga since 2021. We pay 30% above the C-market price, and we visit every other year.</p>
+      <div class="farmer">
+        <div class="farmer-avatar">A</div>
+        <div class="farmer-info">
+          <div class="name">Asnake Bekele</div>
+          <div class="role">Lead processor — Konga, Sidama</div>
+        </div>
+      </div>
+      <div class="origin-stats">
+        <div><div class="l">FARMS</div><div class="v">~ 200</div></div>
+        <div><div class="l">HARVEST</div><div class="v"><em>Nov</em></div></div>
+        <div><div class="l">PRICE PAID</div><div class="v">+30%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COFFEES -->
+<section class="section" id="coffees">
+  <div class="section-head">
+    <div class="section-num">§03 / Coffees</div>
+    <div class="section-name"><em>Three lots,</em> currently roasting</div>
+    <div class="section-meta">SHOP ALL ↗</div>
+  </div>
+  <div class="products-grid" id="products"></div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="sub-block" id="subscribe">
+  <div class="sub-left">
+    <div style="font-size: 11px; color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 24px;">— Subscribe & save 15%</div>
+    <h2><em>Fresh beans,<br/></em> shipped <span class="accent">the day</span><br/>they're roasted.</h2>
+    <p>Pick a frequency. Pick your bag size. We roast the day before we ship — every Tuesday and Friday — so what arrives at your door is what just came off the drum. Skip, swap, or cancel anytime.</p>
+    <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6;">→ Free shipping on subscriptions</div>
+  </div>
+  <div class="sub-right">
+    <div class="sub-card active" data-freq="2-week">
+      <div class="radio"></div>
+      <div>
+        <div class="freq">Every 2 weeks</div>
+        <div class="desc">Most popular · 2 bags / mo</div>
+      </div>
+      <div class="price-col">$40.80<span class="save">SAVE 15%</span></div>
+    </div>
+    <div class="sub-card" data-freq="month">
+      <div class="radio"></div>
+      <div>
+        <div class="freq">Monthly</div>
+        <div class="desc">Casual sippers · 1 bag / mo</div>
+      </div>
+      <div class="price-col">$22.80<span class="save">SAVE 5%</span></div>
+    </div>
+    <div class="sub-card" data-freq="weekly">
+      <div class="radio"></div>
+      <div>
+        <div class="freq">Weekly</div>
+        <div class="desc">Heavy hitters · 4 bags / mo</div>
+      </div>
+      <div class="price-col">$78.20<span class="save">SAVE 20%</span></div>
+    </div>
+    <button class="prod-add" style="padding: 16px; margin-top: 12px; font-size: 12px;" onclick="alert('Subscription flow would start here.')">START SUBSCRIPTION ↗</button>
+  </div>
+</section>
+
+<!-- BREW GUIDE -->
+<section class="section" id="brew">
+  <div class="section-head">
+    <div class="section-num">§04 / Brew Guide</div>
+    <div class="section-name"><em>How</em> to make it</div>
+    <div class="section-meta">V60 / POUR-OVER</div>
+  </div>
+  <div class="brew">
+    <div class="brew-step">
+      <div class="num">01</div>
+      <div class="title">— Grind</div>
+      <div class="body">Medium-fine. Like coarse sand. If you don't own a burr grinder, get one. We'll wait.</div>
+      <div class="ratio">22g <em>coffee</em></div>
+    </div>
+    <div class="brew-step">
+      <div class="num">02</div>
+      <div class="title">— Bloom</div>
+      <div class="body">Pour 60g of water at 96°C in slow circles. Wait 45 seconds. Watch the bubbles.</div>
+      <div class="ratio">+ 60g <em>water</em></div>
+    </div>
+    <div class="brew-step">
+      <div class="num">03</div>
+      <div class="title">— Pour</div>
+      <div class="body">Continue pouring in 4 stages, hitting target weights at 1:00, 1:30, and 2:00. Keep it even.</div>
+      <div class="ratio">→ 360g <em>total</em></div>
+    </div>
+    <div class="brew-step">
+      <div class="num">04</div>
+      <div class="title">— Drink</div>
+      <div class="body">Total brew time: 3:30 to 4:00. Drink it black for the first sip. Then add what you want.</div>
+      <div class="ratio">3:45 <em>min</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG TYPE -->
+<section class="big-type" id="about">
+  <h2><em>Small batch.</em><br/>Big <span class="accent">obsession</span>.</h2>
+  <div class="meta"><span>12KG MAX BATCH</span><span>72-HOUR ROAST WINDOW</span><span>SAME-DAY SHIPPING</span></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-name"><em>Sub/Strata</em></div>
+      <p style="font-size: 13px; opacity: 0.7; max-width: 360px; line-height: 1.55;">A small-batch coffee roastery in Bushwick, Brooklyn. We roast direct-trade single origin coffee in batches of 12 kilos or less. Visit us at 318 Wyckoff Ave, daily 7a–4p.</p>
+      <div style="margin-top: 24px; display: flex; gap: 0; border: 1px solid rgba(255,252,244,0.3); max-width: 360px;">
+        <input style="flex: 1; background: transparent; border: none; padding: 12px 16px; color: var(--paper); font-family: inherit; font-size: 12px; outline: none; letter-spacing: 0.04em;" placeholder="your@email — for the dispatch"/>
+        <button style="background: var(--accent); color: var(--ink); border: none; padding: 0 18px; font-size: 11px; font-family: inherit; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">→</button>
+      </div>
+    </div>
+    <div>
+      <h4>SHOP</h4>
+      <ul>
+        <li><a>Single Origin</a></li>
+        <li><a>Subscriptions</a></li>
+        <li><a>Equipment</a></li>
+        <li><a>Gift Cards</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>SUB/STRATA</h4>
+      <ul>
+        <li><a>Our Story</a></li>
+        <li><a>Origins</a></li>
+        <li><a>The Cafe</a></li>
+        <li><a>Wholesale</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>SUPPORT</h4>
+      <ul>
+        <li><a>Contact</a></li>
+        <li><a>Shipping</a></li>
+        <li><a>Brew Guides</a></li>
+        <li><a>FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 SUB/STRATA ROASTERS · BROOKLYN, NY</span>
+    <span>SITE: 04.30.26 · V.04 / LOT.027</span>
+  </div>
+</footer>
+
+<script>
+// Ticker
+const tickerItems = ["FRESH ROAST · WEDNESDAYS","SAME-DAY SHIPPING","DIRECT TRADE · 30% ABOVE C-MARKET","BATCH SIZE · 12KG MAX","SUBSCRIBE & SAVE 15%","CAFE OPEN 7A–4P","NEXT ROAST: 05.04.26"];
+const track = document.getElementById('ticker-track');
+const repeated = [...tickerItems, ...tickerItems];
+track.innerHTML = repeated.map(t => `<span><span class="sq"></span>${t}</span>`).join('');
+
+// Products
+const PRODUCTS = [
+  { id: "yirg", num: "/01", origin: "ETHIOPIA", name: "Yirgacheffe", meta: "WASHED · LIGHT · 2100M", notes: "Jasmine · Bergamot · Peach", price: 24, badge: "FEATURED" },
+  { id: "huila", num: "/02", origin: "COLOMBIA", name: "El Paraíso", meta: "ANAEROBIC · MEDIUM · 1850M", notes: "Cherry · Cocoa · Plum", price: 26, badge: "NEW" },
+  { id: "kenya", num: "/03", origin: "KENYA", name: "Nyeri AA", meta: "WASHED · MEDIUM-LIGHT · 1700M", notes: "Blackcurrant · Tomato · Honey", price: 28, badge: null }
+];
+
+const productsEl = document.getElementById('products');
+PRODUCTS.forEach(p => {
+  const el = document.createElement('div');
+  el.className = 'prod';
+  el.innerHTML = `
+    <div class="prod-tag">
+      <span>${p.num} · ${p.origin}</span>
+      <span class="${p.badge ? 'accent' : ''}">${p.badge || 'IN STOCK'}</span>
+    </div>
+    <div class="prod-img">
+      <div class="scan"></div>
+      <svg viewBox="0 0 200 280" fill="none">
+        <path d="M 30 50 L 30 260 L 170 260 L 170 50 L 150 30 L 50 30 Z" fill="#0A0A0A" stroke="#0A0A0A"/>
+        <rect x="50" y="100" width="100" height="120" fill="#1a1a1a"/>
+        <text x="100" y="135" text-anchor="middle" fill="#FFFCF4" font-family="Instrument Serif" font-style="italic" font-size="22">${p.name}</text>
+        <line x1="60" y1="155" x2="140" y2="155" stroke="#FFFCF4" stroke-width="0.5" opacity="0.4"/>
+        <text x="100" y="175" text-anchor="middle" fill="#FFFCF4" font-family="JetBrains Mono" font-size="5" letter-spacing="2">${p.origin} · 250G</text>
+        <text x="100" y="210" text-anchor="middle" fill="#FF4A1C" font-family="JetBrains Mono" font-size="5" letter-spacing="2">${p.notes.toUpperCase()}</text>
+        <rect x="80" y="20" width="40" height="14" fill="#FF4A1C"/>
+        <text x="100" y="30" text-anchor="middle" fill="#0A0A0A" font-family="JetBrains Mono" font-size="6" font-weight="700" letter-spacing="2">12 OZ</text>
+      </svg>
+    </div>
+    <div class="prod-info">
+      <div class="meta">${p.meta}</div>
+      <div class="name">${p.name}</div>
+      <div class="meta">${p.notes}</div>
+      <div class="row">
+        <div class="price"><span class="from">FROM</span>$${p.price}</div>
+        <button class="prod-add" onclick="addQuick('${p.id}')">ADD ↗</button>
+      </div>
+    </div>
+  `;
+  productsEl.appendChild(el);
+});
+
+// Cart
+let cart = [];
+function updateBadge() {
+  const n = cart.reduce((s, i) => s + i.qty, 0);
+  document.getElementById('cart-badge').textContent = n.toString().padStart(2, '0');
+}
+function addQuick(id) {
+  if (!id) {
+    showToast(cart.length ? `Cart total: ${cart.reduce((s,i)=>s+i.qty,0)} bags · $${cart.reduce((s,i)=>s+i.price*i.qty,0)}` : 'Cart is empty');
+    return;
+  }
+  const p = PRODUCTS.find(x => x.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) existing.qty++;
+  else cart.push({ ...p, qty: 1 });
+  updateBadge();
+  showToast(`Added: ${p.name} · $${p.price}`);
+}
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2200);
+}
+
+// Subscribe
+document.querySelectorAll('.sub-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.sub-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  });
+});
+
+// Smooth scroll
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.offsetTop - 60, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
