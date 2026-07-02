@@ -770,17 +770,20 @@ function Story() {
     className: "story-inner"
   }, /*#__PURE__*/React.createElement("div", {
     className: "story-image"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "pattern"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "assets/story-kona.webp",
+    alt: "Kona the mini goldendoodle with her Pawsta Farfalle plush toy",
+    loading: "lazy",
+    decoding: "async"
   }), /*#__PURE__*/React.createElement("div", {
     className: "stamp"
   }, /*#__PURE__*/React.createElement("span", {
     className: "est"
   }, "Est. Boston"), /*#__PURE__*/React.createElement("span", {
     className: "big"
-  }, "2024"), /*#__PURE__*/React.createElement("span", null, "Made by hand"), /*#__PURE__*/React.createElement("span", {
+  }, "2024"), /*#__PURE__*/React.createElement("span", {
     className: "small"
-  }, "Boston, MA"))), /*#__PURE__*/React.createElement("div", {
+  }, "Made by hand"))), /*#__PURE__*/React.createElement("div", {
     className: "story-text"
   }, /*#__PURE__*/React.createElement("div", {
     className: "section-eyebrow"

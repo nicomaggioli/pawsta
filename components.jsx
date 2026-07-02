@@ -339,12 +339,11 @@ function Story() {
     <section className="section story" id="story">
       <div className="story-inner">
         <div className="story-image">
-          <div className="pattern"></div>
+          <img src="assets/story-kona.webp" alt="Kona the mini goldendoodle with her Pawsta Farfalle plush toy" loading="lazy" decoding="async" />
           <div className="stamp">
             <span className="est">Est. Boston</span>
             <span className="big">2024</span>
-            <span>Made by hand</span>
-            <span className="small">Boston, MA</span>
+            <span className="small">Made by hand</span>
           </div>
         </div>
         <div className="story-text">
