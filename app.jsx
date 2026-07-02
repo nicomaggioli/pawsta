@@ -73,12 +73,14 @@ function App() {
   return (
     <div className={cardStyleClass}>
       <window.Nav cartCount={cartCount} onCartOpen={() => setCartOpen(true)} onScrollTo={scrollTo}/>
-      <window.Hero onShop={() => scrollTo("shop")} variant={tweaks.heroVariant}/>
-      <window.ProductGrid onOpen={setModalProduct} onQuickAdd={addToCart}/>
-      {tweaks.showStripe && <window.Stripe/>}
-      <window.Process/>
-      <window.Story/>
-      <window.Reviews/>
+      <main>
+        <window.Hero onShop={() => scrollTo("shop")} variant={tweaks.heroVariant}/>
+        <window.ProductGrid onOpen={setModalProduct} onQuickAdd={addToCart}/>
+        {tweaks.showStripe && <window.Stripe/>}
+        <window.Process/>
+        <window.Story/>
+        <window.Reviews/>
+      </main>
       <window.Footer/>
 
       {modalProduct && (

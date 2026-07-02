@@ -1683,3 +1683,20 @@ html, body {
     padding: 0 4px;
   }
 }
+
+/* ============================================================
+   MOBILE HERO — image-led, centered
+   Dog appears first under the nav so the product is visible on
+   landing; headline, copy, and stats center to match the
+   full-width buttons. Desktop layout unchanged.
+   ============================================================ */
+@media (max-width: 600px) {
+  .hero-inner { display: flex; flex-direction: column; gap: 20px; }
+  .hero-pack { order: -1; height: 280px; margin: 0; }
+  .hero-pack .kona { width: auto; max-width: 100%; max-height: 100%; }
+  .hero h1 { text-align: center; }
+  .hero-sub { text-align: center; margin-left: auto; margin-right: auto; }
+  .hero-ctas { margin-bottom: 28px; }
+  .hero-stats { justify-content: center; text-align: center; gap: 18px 0; }
+  .hero-stat { flex: 0 0 50%; }
+}
