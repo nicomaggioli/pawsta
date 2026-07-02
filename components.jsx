@@ -101,7 +101,7 @@ function Logo({ size = 28, dark = false }) {
 function Announce() {
   const items = [
   "Free shipping over $50",
-  "Hand-stitched in Boston",
+  "Designed in Boston",
   "Hidden crunch your pup will love",
   "Built for picky puppies",
   "Machine washable · crunch survives"];
@@ -165,7 +165,7 @@ function Hero({ onShop, theme }) {
           </div>
           <div className="hero-stats">
             <div className="hero-stat"><span className="num">1</span><span className="label">Signature Shape</span></div>
-            <div className="hero-stat"><span className="num">100%</span><span className="label">Hand Stitched</span></div>
+            <div className="hero-stat"><span className="num">100%</span><span className="label">Designed in Boston</span></div>
             <div className="hero-stat"><span className="num">4.8★</span><span className="label">Avg. Rating</span></div>
             <div className="hero-stat"><span className="num">0</span><span className="label">Actual Carbs</span></div>
           </div>
@@ -181,7 +181,7 @@ function Hero({ onShop, theme }) {
 
 // === STRIPE BANNER ===
 function Stripe() {
-  const items = ["Hidden crunch inside", "Hand stitched in Boston", "Machine washable", "Built for picky pups", "Made with love"];
+  const items = ["Hidden crunch inside", "Designed in Boston", "Machine washable", "Built for picky pups", "Made with love"];
   const star =
   <svg className="star" viewBox="0 0 24 24" fill="#FFCB31" stroke="#FAF3E3" strokeWidth="1"><path d="M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z" /></svg>;
 
@@ -306,7 +306,7 @@ function ProductGrid({ onOpen, onQuickAdd }) {
 function Process() {
   const steps = [
   { n: "01", t: "Sketched", d: "Every Pawsta starts as a sketch at our kitchen table in Boston, usually with a puppy underfoot." },
-  { n: "02", t: "Stitched", d: "We cut, stuff, and double stitch each plush by hand, tucking a crinkle crunch liner inside the shell." },
+  { n: "02", t: "Stitched", d: "Each plush is cut, stuffed, and double stitched, with a crinkle crunch liner tucked inside the shell." },
   { n: "03", t: "Crunch Tested", d: "Our chief tester is a very picky puppy named Kona. She personally approves every prototype before it ships." },
   { n: "04", t: "Boxed", d: "Packed and shipped from Boston, usually within 24 hours. No middleman, no warehouse." }];
 
@@ -340,11 +340,6 @@ function Story() {
       <div className="story-inner">
         <div className="story-image">
           <img src="assets/story-kona.webp" alt="Kona the mini goldendoodle with her Pawsta Farfalle plush toy" loading="lazy" decoding="async" />
-          <div className="stamp">
-            <span className="est">Est. Boston</span>
-            <span className="big">2024</span>
-            <span className="small">Made by hand</span>
-          </div>
         </div>
         <div className="story-text">
           <div className="section-eyebrow">Our story</div>
@@ -356,9 +351,8 @@ function Story() {
             So we started making our own at the kitchen table. Somewhere along the way we tucked a layer of crinkle crunch material inside a soft plush bow tie, and that was the moment. She was obsessed. She carried it everywhere, crunched it for hours, and finally left our actual shoes alone.
           </p>
           <p>
-            That little farfalle became Pawsta. Every one is still hand stitched in Boston, built to survive a picky puppy, and made with the exact same crunch that started it all.
+            That little farfalle became Pawsta. Every one is still designed in Boston, built to survive a picky puppy, and made with the exact same crunch that started it all.
           </p>
-          <a className="btn btn-dark" style={{ marginTop: 8 }}>Read the long version</a>
         </div>
       </div>
     </section>);
@@ -462,7 +456,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Pawsta Co. · Boston, MA · Hand Stitched Plush</span>
+          <span>© 2026 Pawsta Co. · Boston, MA · Designed in Boston</span>
           <span>Supervise your pet · Remove tags before play · Made with love</span>
         </div>
       </div>

@@ -840,37 +840,6 @@ html, body {
   object-position: center 30%;
   display: block;
 }
-.story-image .stamp {
-  position: absolute;
-  bottom: 22px;
-  left: 22px;
-  transform: rotate(-8deg);
-  background: var(--yellow);
-  color: var(--navy);
-  font-family: "Bricolage Grotesque", system-ui, sans-serif;
-  font-weight: 900;
-  font-size: 15px;
-  text-align: center;
-  padding: 16px 20px;
-  border: 3px solid var(--navy);
-  border-radius: 4px;
-  line-height: 1.1;
-  box-shadow: 5px 5px 0 var(--red);
-  z-index: 1;
-}
-.story-image .stamp .est {
-  font-family: "Archivo", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  display: block;
-  margin-bottom: 8px;
-  opacity: 0.7;
-}
-.story-image .stamp .big { display: block; font-size: 30px; line-height: 1; margin-bottom: 6px; }
-.story-image .stamp .small { font-size: 11px; font-style: normal; font-weight: 700; font-family: "Archivo", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-top: 8px; }
-
 .story-text h2 {
   font-family: "Bricolage Grotesque", system-ui, sans-serif;
   font-weight: 900;

@@ -354,7 +354,7 @@ function Logo({
 
 // === ANNOUNCEMENT ===
 function Announce() {
-  const items = ["Free shipping over $50", "Hand-stitched in Boston", "Hidden crunch your pup will love", "Built for picky puppies", "Machine washable · crunch survives"];
+  const items = ["Free shipping over $50", "Designed in Boston", "Hidden crunch your pup will love", "Built for picky puppies", "Machine washable · crunch survives"];
   const repeated = [...items, ...items];
   return /*#__PURE__*/React.createElement("div", {
     className: "announce"
@@ -492,7 +492,7 @@ function Hero({
     className: "num"
   }, "100%"), /*#__PURE__*/React.createElement("span", {
     className: "label"
-  }, "Hand Stitched")), /*#__PURE__*/React.createElement("div", {
+  }, "Designed in Boston")), /*#__PURE__*/React.createElement("div", {
     className: "hero-stat"
   }, /*#__PURE__*/React.createElement("span", {
     className: "num"
@@ -522,7 +522,7 @@ function Hero({
 
 // === STRIPE BANNER ===
 function Stripe() {
-  const items = ["Hidden crunch inside", "Hand stitched in Boston", "Machine washable", "Built for picky pups", "Made with love"];
+  const items = ["Hidden crunch inside", "Designed in Boston", "Machine washable", "Built for picky pups", "Made with love"];
   const star = /*#__PURE__*/React.createElement("svg", {
     className: "star",
     viewBox: "0 0 24 24",
@@ -720,7 +720,7 @@ function Process() {
   }, {
     n: "02",
     t: "Stitched",
-    d: "We cut, stuff, and double stitch each plush by hand, tucking a crinkle crunch liner inside the shell."
+    d: "Each plush is cut, stuffed, and double stitched, with a crinkle crunch liner tucked inside the shell."
   }, {
     n: "03",
     t: "Crunch Tested",
@@ -775,24 +775,11 @@ function Story() {
     alt: "Kona the mini goldendoodle with her Pawsta Farfalle plush toy",
     loading: "lazy",
     decoding: "async"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "stamp"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "est"
-  }, "Est. Boston"), /*#__PURE__*/React.createElement("span", {
-    className: "big"
-  }, "2024"), /*#__PURE__*/React.createElement("span", {
-    className: "small"
-  }, "Made by hand"))), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "story-text"
   }, /*#__PURE__*/React.createElement("div", {
     className: "section-eyebrow"
-  }, "Our story"), /*#__PURE__*/React.createElement("h2", null, "It started with one very picky\xA0puppy."), /*#__PURE__*/React.createElement("p", null, "When we brought our puppy home, we did what every new dog owner does. We bought every toy at the pet store. She ignored all of them. The squeaky ones, the rope ones, the squeaky rope ones. Nothing held her attention for more than a minute, and the selection was honestly pretty uninspired."), /*#__PURE__*/React.createElement("p", null, "So we started making our own at the kitchen table. Somewhere along the way we tucked a layer of crinkle crunch material inside a soft plush bow tie, and that was the moment. She was obsessed. She carried it everywhere, crunched it for hours, and finally left our actual shoes alone."), /*#__PURE__*/React.createElement("p", null, "That little farfalle became Pawsta. Every one is still hand stitched in Boston, built to survive a picky puppy, and made with the exact same crunch that started it all."), /*#__PURE__*/React.createElement("a", {
-    className: "btn btn-dark",
-    style: {
-      marginTop: 8
-    }
-  }, "Read the long version"))));
+  }, "Our story"), /*#__PURE__*/React.createElement("h2", null, "It started with one very picky\xA0puppy."), /*#__PURE__*/React.createElement("p", null, "When we brought our puppy home, we did what every new dog owner does. We bought every toy at the pet store. She ignored all of them. The squeaky ones, the rope ones, the squeaky rope ones. Nothing held her attention for more than a minute, and the selection was honestly pretty uninspired."), /*#__PURE__*/React.createElement("p", null, "So we started making our own at the kitchen table. Somewhere along the way we tucked a layer of crinkle crunch material inside a soft plush bow tie, and that was the moment. She was obsessed. She carried it everywhere, crunched it for hours, and finally left our actual shoes alone."), /*#__PURE__*/React.createElement("p", null, "That little farfalle became Pawsta. Every one is still designed in Boston, built to survive a picky puppy, and made with the exact same crunch that started it all."))));
 }
 
 // === REVIEWS ===
@@ -892,7 +879,7 @@ function Footer() {
     onClick: () => jump("reviews")
   }, "The Pack")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Press")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Wholesale")))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Help"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Contact")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Shipping")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Returns")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Care Guide")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "FAQ"))))), /*#__PURE__*/React.createElement("div", {
     className: "footer-bottom"
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Pawsta Co. \xB7 Boston, MA \xB7 Hand Stitched Plush"), /*#__PURE__*/React.createElement("span", null, "Supervise your pet \xB7 Remove tags before play \xB7 Made with love"))));
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Pawsta Co. \xB7 Boston, MA \xB7 Designed in Boston"), /*#__PURE__*/React.createElement("span", null, "Supervise your pet \xB7 Remove tags before play \xB7 Made with love"))));
 }
 
 // === PRODUCT MODAL ===

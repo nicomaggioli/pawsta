@@ -1,5 +1,5 @@
 (function(){
-// Pawsta product catalog — hand-stitched plush pasta toys with a hidden crunch
+// Pawsta product catalog — plush pasta toys with a hidden crunch, designed in Boston
 const PRODUCTS = [{
   id: "farfalle",
   name: "Farfalle Plush",
