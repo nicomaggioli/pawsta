@@ -234,18 +234,6 @@ html, body {
 }
 .hero h1 .red { color: var(--red); }
 .hero h1 .yellow { color: var(--yellow); }
-    font-size: clamp(72px, 9vw, 144px);
-  line-height: 0.88;
-  margin: 0 0 32px;
-  letter-spacing: -0.025em;
-  color: var(--cream);
-}
-.hero h1 .stroke {
-  -webkit-text-stroke: 2px var(--cream);
-  color: transparent;
-  }
-.hero h1 .red { color: var(--red); }
-.hero h1 .yellow { color: var(--yellow); }
 
 .hero-sub {
   font-size: 19px;
@@ -1460,4 +1448,133 @@ html, body {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .nav-inner { grid-template-columns: auto 1fr auto; }
   .nav-links { display: none; }
+}
+
+/* ============================================================
+   RESPONSIVE SCALING
+   Goal: identical proportions across large desktops — a 2560px
+   screen looks like a scaled-up 1920px screen — plus real phone
+   breakpoints. Every large-screen value is anchored so that at
+   exactly 1920px it equals the base design (no jump at the seam),
+   then scales up via 100vw/1920 and caps near the 2560 ratio.
+   ============================================================ */
+
+/* ---- Large desktops: ≥1920px scale up proportionally ---- */
+@media (min-width: 1920px) {
+  /* Containers grow with the viewport (1400 @1920 → ~1867 @2560) */
+  .nav-inner, .hero-inner, .section-inner, .story-inner, .footer-inner {
+    max-width: clamp(1400px, 72.9vw, 2100px);
+    padding-left: clamp(32px, 1.667vw, 43px);
+    padding-right: clamp(32px, 1.667vw, 43px);
+  }
+  .process-grid { max-width: clamp(1400px, 72.9vw, 2100px) !important; }
+
+  /* Section rhythm */
+  .section { padding: clamp(96px, 5vw, 128px) 0; }
+
+  /* Hero */
+  .hero { padding-top: clamp(64px, 3.333vw, 85px); }
+  .hero-inner { gap: clamp(48px, 2.5vw, 64px); }
+  .hero h1 { font-size: clamp(144px, 7.5vw, 192px); }
+  .hero-sub { font-size: clamp(19px, 0.99vw, 25px); max-width: clamp(480px, 25vw, 640px); }
+  .hero-stats { gap: clamp(48px, 2.5vw, 64px); }
+  .hero-stat .num { font-size: clamp(44px, 2.292vw, 59px); }
+  .hero-pack { height: clamp(640px, 33.333vw, 853px); }
+
+  /* Section headers */
+  .section-eyebrow { font-size: clamp(12px, 0.625vw, 16px); }
+  .section-title { font-size: clamp(84px, 4.375vw, 112px); max-width: clamp(700px, 36.5vw, 935px); }
+
+  /* Featured product */
+  .featured-media { min-height: clamp(560px, 29.167vw, 747px); }
+  .featured-body { padding: clamp(48px, 2.5vw, 64px) clamp(44px, 2.292vw, 59px); }
+  .featured-name { font-size: clamp(52px, 2.708vw, 69px); }
+  .featured-desc { font-size: clamp(15px, 0.781vw, 20px); }
+  .featured-features li { font-size: clamp(14px, 0.729vw, 19px); }
+  .featured-price { font-size: clamp(34px, 1.771vw, 45px); }
+
+  /* Marquee stripe */
+  .stripe-track .item { font-size: clamp(56px, 2.917vw, 75px); }
+  .stripe-track .star { width: clamp(28px, 1.458vw, 37px); height: clamp(28px, 1.458vw, 37px); }
+
+  /* Process */
+  .process-num { font-size: clamp(64px, 3.333vw, 85px); }
+  .process-name { font-size: clamp(16px, 0.833vw, 21px); }
+  .process-desc { font-size: clamp(14px, 0.729vw, 19px); }
+
+  /* Story */
+  .story-inner { gap: clamp(80px, 4.167vw, 107px); }
+  .story-text h2 { font-size: clamp(72px, 3.75vw, 96px); }
+  .story-text p { font-size: clamp(17px, 0.885vw, 23px); max-width: clamp(520px, 27vw, 690px); }
+
+  /* Reviews */
+  .review-text { font-size: clamp(20px, 1.042vw, 27px); }
+
+  /* Footer */
+  .footer-tag { font-size: clamp(28px, 1.458vw, 37px); }
+
+  /* Overlays scale too */
+  .modal { max-width: clamp(1100px, 57vw, 1460px); }
+  .modal-title { font-size: clamp(56px, 2.917vw, 75px); }
+  .cart-drawer { width: clamp(460px, 24vw, 610px); }
+}
+
+/* ---- Tablet / small laptop refinements ---- */
+@media (max-width: 900px) {
+  .hero { padding-top: 40px; }
+  .hero-inner { gap: 32px; }
+  .hero h1 { font-size: clamp(44px, 12vw, 88px); }
+  .hero-sub { font-size: 17px; }
+  .hero-stats { gap: 28px 36px; flex-wrap: wrap; padding: 24px 0; }
+  .hero-pack { height: 360px; }
+  .hero-pack .kona { width: 100%; }
+  .section { padding: 64px 0; }
+  .section-title { font-size: clamp(36px, 8vw, 64px); }
+  .featured-body { padding: 32px 26px; }
+  .featured-name { font-size: clamp(38px, 9vw, 52px); }
+  .stripe-track .item { font-size: 40px; }
+  .stripe { padding: 20px 0; }
+  .story-inner { gap: 40px; }
+  .story-text h2 { font-size: clamp(38px, 8vw, 60px); }
+  .modal-title { font-size: 40px; }
+}
+
+/* ---- Phones ---- */
+@media (max-width: 600px) {
+  .nav-inner { padding: 12px 18px; gap: 12px; }
+  .hero { padding-top: 28px; }
+  .hero-inner { padding: 0 20px; }
+  .hero h1 { font-size: clamp(40px, 13vw, 60px); }
+  .hero-sub { font-size: 16px; margin-bottom: 28px; }
+  .hero-ctas { margin-bottom: 36px; }
+  .hero-ctas .btn { width: 100%; }
+  .hero-stats { gap: 20px 24px; }
+  .hero-stat { flex: 0 0 40%; }
+  .hero-stat .num { font-size: 34px; }
+  .hero-pack { height: 300px; }
+  .section-inner, .story-inner, .footer-inner { padding: 0 20px; }
+  .section { padding: 52px 0; }
+  .section-header { margin-bottom: 32px; }
+  .section-title { font-size: clamp(32px, 9vw, 46px); }
+  .featured { border-radius: 16px; }
+  .featured-media { min-height: 300px; padding: 18px; }
+  .featured-body { padding: 26px 20px; gap: 12px; }
+  .featured-name { font-size: 40px; }
+  .featured-buy { flex-wrap: wrap; }
+  .featured-buy .btn { flex: 1 0 100% !important; }
+  .stripe-track { gap: 20px; }
+  .stripe-track .item { font-size: 30px; }
+  .stripe-track .star { width: 20px; height: 20px; }
+  .process-grid { grid-template-columns: 1fr; }
+  .process-step { border-right: none; border-bottom: 1px dashed var(--navy); }
+  .process-step:last-child { border-bottom: none; }
+  .process-num { font-size: 52px; }
+  .story-text h2 { font-size: clamp(30px, 9vw, 44px); }
+  .story-text p { font-size: 15px; }
+  .story-image { aspect-ratio: 3 / 4; }
+  .review-grid { gap: 16px; }
+  .footer { padding: 56px 0 28px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .footer-bottom { font-size: 11px; }
+  .toast { width: calc(100vw - 32px); justify-content: center; text-align: center; }
 }
