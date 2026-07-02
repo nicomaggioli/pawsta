@@ -1631,3 +1631,55 @@ html, body {
     line-height: 1.5;
   }
 }
+
+/* ============================================================
+   STRESS-TEST FIXES (80-user chaos run)
+   ============================================================ */
+
+/* 320px screens: section titles with nbsp-joined words overflowed.
+   Slightly smaller floor + break-word safety net. */
+@media (max-width: 600px) {
+  .section-title { font-size: clamp(26px, 8.2vw, 46px); overflow-wrap: break-word; }
+  .section-header > div { min-width: 0; }
+}
+
+/* Footer links behave like links */
+.footer ul a { cursor: pointer; }
+
+/* Newsletter feedback */
+.newsletter-done {
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--yellow);
+  border: 2px dashed var(--yellow);
+  border-radius: 999px;
+  padding: 12px 20px;
+  max-width: 360px;
+}
+.newsletter.shake { animation: nlshake 0.4s ease; }
+@keyframes nlshake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-3px); }
+}
+
+/* Small screens: icon-only cart with corner badge — the text label +
+   badge made the nav wider than 320px viewports when the cart filled */
+@media (max-width: 600px) {
+  .nav-inner { padding: 12px 16px; gap: 8px; }
+  .nav-actions { gap: 4px; }
+  .nav-icon-btn { padding: 8px 6px; }
+  .nav-icon-btn span:not(.cart-count) { display: none; }
+  .cart-count {
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    min-width: 17px;
+    height: 17px;
+    font-size: 10px;
+    padding: 0 4px;
+  }
+}

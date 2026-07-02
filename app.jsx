@@ -1,5 +1,7 @@
 // Pawsta storefront — main app
-const { useState, useEffect, useCallback } = React;
+const { useState, useEffect, useCallback, useRef } = React;
+
+const MAX_QTY = 99;
 
 const TWEAKS_DEFAULTS = /*EDITMODE-BEGIN*/{
   "heroVariant": "AlDente",
@@ -22,9 +24,11 @@ function App() {
     document.documentElement.style.setProperty("--yellow", tweaks.accentColor);
   }, [tweaks.accentColor]);
 
+  const toastTimer = useRef(null);
   const showToast = useCallback((msg) => {
     setToast(msg);
-    setTimeout(() => setToast(null), 2200);
+    clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToast(null), 2200);
   }, []);
 
   const addToCart = useCallback((product, opts = {}) => {
@@ -35,11 +39,11 @@ function App() {
     setCart(prev => {
       const existing = prev.find(i => i.lineId === lineId);
       if (existing) {
-        return prev.map(i => i.lineId === lineId ? { ...i, qty: i.qty + qty } : i);
+        return prev.map(i => i.lineId === lineId ? { ...i, qty: Math.min(MAX_QTY, i.qty + qty) } : i);
       }
       return [...prev, {
         lineId, productId: product.id, name: product.name,
-        price: product.price, size, flavor, qty
+        price: product.price, size, flavor, qty: Math.min(MAX_QTY, qty)
       }];
     });
     showToast(`Added: ${product.name}`);
@@ -49,7 +53,7 @@ function App() {
     if (qty < 1) {
       setCart(prev => prev.filter(i => i.lineId !== lineId));
     } else {
-      setCart(prev => prev.map(i => i.lineId === lineId ? { ...i, qty } : i));
+      setCart(prev => prev.map(i => i.lineId === lineId ? { ...i, qty: Math.min(MAX_QTY, qty) } : i));
     }
   }, []);
 

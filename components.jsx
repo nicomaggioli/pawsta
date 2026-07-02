@@ -160,7 +160,7 @@ function Hero({ onShop, theme }) {
           <p className="hero-sub">A soft plush on the outside, a satisfying crunch hidden inside. We designed it in Boston for our own picky puppy. She hasn't put it down&nbsp;since.
           </p>
           <div className="hero-ctas">
-            <button className="btn btn-primary" onClick={onShop}>Shop the Farfalle →</button>
+            <button className="btn btn-primary" onClick={onShop}>Shop the Farfalle</button>
             <button className="btn btn-ghost" onClick={() => document.getElementById("story").scrollIntoView({ behavior: "smooth" })}>Our story</button>
           </div>
           <div className="hero-stats">
@@ -171,7 +171,7 @@ function Hero({ onShop, theme }) {
           </div>
         </div>
         <div className="hero-pack">
-          <img className="kona" src="assets/Kona.png" alt="Kona with a Pawsta chew" />
+          <img className="kona" src="assets/Kona.webp" alt="Kona with a Pawsta chew" fetchpriority="high" decoding="async" />
         </div>
       </div>
       <div className="checker-border" style={{ marginTop: 64 }} />
@@ -238,12 +238,12 @@ function FeaturedProduct({ product, onAdd }) {
     <div className="featured">
       <div className="featured-media">
         {product.badge && <span className="card-badge">{product.badge}</span>}
-        <img src={activeImg} alt={product.name} />
+        <img src={activeImg} alt={product.name} decoding="async" />
         {gallery.length > 1 &&
         <div className="featured-thumbs">
             {gallery.map((src, i) =>
           <button key={i} className={`featured-thumb ${activeImg === src ? "active" : ""}`} onClick={() => setActiveImg(src)} aria-label={`View ${i === 0 ? "top" : "side"}`}>
-                <img src={src} alt="" />
+                <img src={src} alt="" loading="lazy" decoding="async" />
               </button>
           )}
           </div>
@@ -264,9 +264,9 @@ function FeaturedProduct({ product, onAdd }) {
         <div className="featured-buy">
           <span className="featured-price">${product.price.toFixed(2)}</span>
           <div className="qty-stepper">
-            <button onClick={() => setQty(Math.max(1, qty - 1))}>−</button>
+            <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="Decrease quantity">−</button>
             <span className="val">{qty}</span>
-            <button onClick={() => setQty(qty + 1)}>+</button>
+            <button onClick={() => setQty(Math.min(99, qty + 1))} aria-label="Increase quantity">+</button>
           </div>
           <button className="btn btn-primary" style={{ flex: 1, height: 56 }} onClick={() => onAdd(product, { size, flavor: inside, qty })}>
             Add to cart · ${(product.price * qty).toFixed(2)}
@@ -359,7 +359,7 @@ function Story() {
           <p>
             That little farfalle became Pawsta. Every one is still hand stitched in Boston, built to survive a picky puppy, and made with the exact same crunch that started it all.
           </p>
-          <a className="btn btn-dark" style={{ marginTop: 8 }}>Read the long version →</a>
+          <a className="btn btn-dark" style={{ marginTop: 8 }}>Read the long version</a>
         </div>
       </div>
     </section>);
@@ -396,6 +396,21 @@ function Reviews() {
 
 // === FOOTER ===
 function Footer() {
+  const [email, setEmail] = useState("");
+  const [signedUp, setSignedUp] = useState(false);
+  const [shake, setShake] = useState(false);
+  const subscribe = () => {
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setSignedUp(true);
+    } else {
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
+    }
+  };
+  const jump = (id) => {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+  };
   return (
     <footer className="footer">
       <div className="footer-inner">
@@ -403,10 +418,16 @@ function Footer() {
           <div>
             <Logo size={24} />
             <div className="footer-tag">"Built for one very picky&nbsp;puppy."<br />And now, for&nbsp;yours.</div>
-            <div className="newsletter">
-              <input type="email" placeholder="your@email.com" />
-              <button>Sign me up</button>
+            {signedUp ?
+            <div className="newsletter-done">✓ You're on the list. Kona approves.</div> :
+            <div className={`newsletter ${shake ? "shake" : ""}`}>
+              <input type="email" placeholder="your@email.com" value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => {if (e.key === "Enter") subscribe();}}
+                aria-label="Email address" />
+              <button onClick={subscribe}>Sign me up</button>
             </div>
+            }
             <div style={{ fontSize: 11, opacity: 0.5, marginTop: 12, letterSpacing: "0.06em" }}>
               We email rarely. New colors, restocks, the occasional puppy photo.
             </div>
@@ -414,7 +435,7 @@ function Footer() {
           <div>
             <h4>Shop</h4>
             <ul>
-              <li><a>The Farfalle Plush</a></li>
+              <li><a onClick={() => jump("shop")}>The Farfalle Plush</a></li>
               <li><a>Gift Cards</a></li>
               <li><a>Bundles</a></li>
               <li><a>Coming Soon</a></li>
@@ -423,9 +444,9 @@ function Footer() {
           <div>
             <h4>Pawsta</h4>
             <ul>
-              <li><a>Our Story</a></li>
-              <li><a>How It's Made</a></li>
-              <li><a>The Pack</a></li>
+              <li><a onClick={() => jump("story")}>Our Story</a></li>
+              <li><a onClick={() => jump("process")}>How It's Made</a></li>
+              <li><a onClick={() => jump("reviews")}>The Pack</a></li>
               <li><a>Press</a></li>
               <li><a>Wholesale</a></li>
             </ul>
@@ -596,7 +617,7 @@ function CartDrawer({ cart, onClose, onUpdateQty, onRemove }) {
                 <div className="cart-row"><span className="label">Shipping</span><span>{subtotal >= FREE_SHIP ? "Free" : "$6.00"}</span></div>
                 <div className="cart-row total"><span className="label">Total</span><span>${(subtotal + (subtotal >= FREE_SHIP ? 0 : 6)).toFixed(2)}</span></div>
               </div>
-              <button className="btn btn-primary" style={{ width: "100%", height: 56 }}>Checkout →</button>
+              <button className="btn btn-primary" style={{ width: "100%", height: 56 }}>Checkout</button>
             </div>
           </React.Fragment>
         }
