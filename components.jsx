@@ -155,7 +155,7 @@ function Hero({ onShop, theme }) {
       <div className="hero-inner">
         <div>
           <h1>
-            <span className="red">Pawsta</span> <span>for your&nbsp;pup!</span>
+            <span className="yellow">Pawsta</span> <span>for your&nbsp;pup!</span>
           </h1>
           <p className="hero-sub">A soft plush on the outside, a satisfying crunch hidden inside. We designed it in Boston for our own picky puppy. She hasn't put it down&nbsp;since.
           </p>

@@ -5,7 +5,7 @@ const PRODUCTS = [
     name: "Farfalle Plush",
     italian: "Bow tie",
     tagline: "A huggable plush bow tie with a hidden crunch your pup won't put down.",
-    price: 22.00,
+    price: 12.98,
     sizes: ["One size"],
     flavors: ["Crinkle Crunch"],
     image: "assets/plush-top.png",
