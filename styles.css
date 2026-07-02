@@ -1578,3 +1578,29 @@ html, body {
   .footer-bottom { font-size: 11px; }
   .toast { width: calc(100vw - 32px); justify-content: center; text-align: center; }
 }
+
+/* ============================================================
+   TYPOGRAPHY POLISH — widow/orphan prevention
+   balance: even out heading line lengths; pretty: avoid
+   single-word last lines in running text. Progressive
+   enhancement — older browsers simply ignore these.
+   ============================================================ */
+.hero h1,
+.section-title,
+.story-text h2,
+.featured-name,
+.modal-title,
+.footer-tag,
+.cart-empty .big {
+  text-wrap: balance;
+}
+.hero-sub,
+.featured-desc,
+.featured-ship,
+.story-text p,
+.review-text,
+.process-desc,
+.modal-tagline,
+.cart-empty .sub {
+  text-wrap: pretty;
+}

@@ -4,7 +4,7 @@ const PRODUCTS = [
     id: "farfalle",
     name: "Farfalle Plush",
     italian: "Bow tie",
-    tagline: "A huggable plush bow tie with a hidden crunch your pup won't put down.",
+    tagline: "A huggable plush bow tie with a hidden crunch your pup won't put down.",
     price: 22.00,
     sizes: ["One size"],
     flavors: ["Crinkle Crunch"],
@@ -16,7 +16,7 @@ const PRODUCTS = [
     badge: "Best Seller",
     durability: 4,
     chewTime: 40,
-    description: "It looks like a soft plush bow tie. Then your dog bites down and discovers the secret: a layer of crinkle crunch material tucked inside the shell that makes the most satisfying sound on earth. Double stitched seams, no spill stuffing, and a shape that's just right for carrying around the house.",
+    description: "It looks like a soft plush bow tie. Then your dog bites down and discovers the secret: a layer of crinkle crunch material tucked inside the shell that makes the most satisfying sound on earth. Double stitched seams, no spill stuffing, and a shape that's just right for carrying around the house.",
     materials: "Double stitched plush shell · hidden crinkle crunch liner · no spill poly stuffing",
     weight: "0.4 lb (181g)",
     features: [
@@ -36,21 +36,21 @@ const REVIEWS = [
   {
     name: "Kona",
     breed: "Mini Goldendoodle",
-    text: "My puppy is impossible to shop for and ignores literally everything. This is the first toy she's actually kept coming back to. The crunch sound drives her wild. Going on three months and it still looks new.",
+    text: "My puppy is impossible to shop for and ignores literally everything. This is the first toy she's actually kept coming back to. The crunch sound drives her wild. Going on three months and it still looks new.",
     rating: 5,
     owner: "Rachel M."
   },
   {
     name: "Bowie",
     breed: "Cavalier",
-    text: "Soft enough that I'm not worried about his teeth, but that crinkle inside keeps him busy for ages. Wish it came in a couple more colors, honestly, but that's my only note.",
+    text: "Soft enough that I'm not worried about his teeth, but that crinkle inside keeps him busy for ages. Wish it came in a couple more colors, honestly, but that's my only note.",
     rating: 4,
     owner: "Daniel K."
   },
   {
     name: "Olive",
     breed: "Rescue mix",
-    text: "Washed it after two weeks of heavy use and the crunch still works perfectly. Olive carries it from room to room like it's her job. Worth every penny.",
+    text: "Washed it after two weeks of heavy use and the crunch still works perfectly. Olive carries it from room to room like it's her job. Worth every penny.",
     rating: 5,
     owner: "Priya S."
   }

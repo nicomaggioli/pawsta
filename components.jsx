@@ -155,9 +155,9 @@ function Hero({ onShop, theme }) {
       <div className="hero-inner">
         <div>
           <h1>
-            <span className="red">Pawsta</span> <span>for your pup!</span>
+            <span className="red">Pawsta</span> <span>for your&nbsp;pup!</span>
           </h1>
-          <p className="hero-sub">A soft plush on the outside, a satisfying crunch hidden inside. We designed it in Boston for our own picky puppy. She hasn't put it down since.
+          <p className="hero-sub">A soft plush on the outside, a satisfying crunch hidden inside. We designed it in Boston for our own picky puppy. She hasn't put it down&nbsp;since.
           </p>
           <div className="hero-ctas">
             <button className="btn btn-primary" onClick={onShop}>Shop the Farfalle →</button>
@@ -316,7 +316,7 @@ function Process() {
         <div className="section-header">
           <div>
             <div className="section-eyebrow">How it's made</div>
-            <h2 className="section-title">From sketch to slobber.</h2>
+            <h2 className="section-title">From sketch to&nbsp;slobber.</h2>
           </div>
         </div>
       </div>
@@ -349,7 +349,7 @@ function Story() {
         </div>
         <div className="story-text">
           <div className="section-eyebrow">Our story</div>
-          <h2>It started with one very picky puppy.</h2>
+          <h2>It started with one very picky&nbsp;puppy.</h2>
           <p>
             When we brought our puppy home, we did what every new dog owner does. We bought every toy at the pet store. She ignored all of them. The squeaky ones, the rope ones, the squeaky rope ones. Nothing held her attention for more than a minute, and the selection was honestly pretty uninspired.
           </p>
@@ -374,7 +374,7 @@ function Reviews() {
         <div className="section-header">
           <div>
             <div className="section-eyebrow">From the pack</div>
-            <h2 className="section-title">Reviews from very serious customers.</h2>
+            <h2 className="section-title">Reviews from very serious&nbsp;customers.</h2>
           </div>
         </div>
         <div className="review-grid">
@@ -402,7 +402,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <Logo size={24} />
-            <div className="footer-tag">"Built for one very picky puppy."<br />And now, for yours.</div>
+            <div className="footer-tag">"Built for one very picky&nbsp;puppy."<br />And now, for&nbsp;yours.</div>
             <div className="newsletter">
               <input type="email" placeholder="your@email.com" />
               <button>Sign me up</button>
