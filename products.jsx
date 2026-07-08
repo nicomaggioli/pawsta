@@ -34,7 +34,7 @@ const COLLECTIONS = [
 
 const REVIEWS = [
   {
-    name: "Kona",
+    name: "Maple",
     breed: "Mini Goldendoodle",
     text: "My puppy is impossible to shop for and ignores literally everything. This is the first toy she's actually kept coming back to. The crunch sound drives her wild. Going on three months and it still looks new.",
     rating: 5,
@@ -57,3 +57,13 @@ const REVIEWS = [
 ];
 
 Object.assign(window, { PRODUCTS, COLLECTIONS, REVIEWS });
+
+// Site configuration — fill these in as services come online.
+// checkoutUrl: a Stripe Payment Link (or similar). Empty = checkout falls back to an email order.
+// newsletterEndpoint: a Formspree/Buttondown form URL. Empty = signup falls back to a prefilled email.
+const PAWSTA_CONFIG = {
+  checkoutUrl: "",
+  newsletterEndpoint: "",
+  supportEmail: "hello@pawsta.co"
+};
+Object.assign(window, { PAWSTA_CONFIG });

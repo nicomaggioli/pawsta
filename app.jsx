@@ -3,39 +3,34 @@ const { useState, useEffect, useCallback, useRef } = React;
 
 const MAX_QTY = 99;
 
-const TWEAKS_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "heroVariant": "AlDente",
-  "accentColor": "#FFCB31",
-  "showAnnounce": true,
-  "showStripe": true,
-  "cardStyle": "Bordered",
-  "darkHero": true
-}/*EDITMODE-END*/;
-
 function App() {
-  const [tweaks, setTweak] = window.useTweaks(TWEAKS_DEFAULTS);
   const [cart, setCart] = useState([]);
-  const [modalProduct, setModalProduct] = useState(null);
   const [cartOpen, setCartOpen] = useState(false);
   const [toast, setToast] = useState(null);
+  const [pastBuy, setPastBuy] = useState(false);
+  const buyRef = useRef(null);
 
-  // Apply accent tweak
+  // Sticky buy bar: show once the featured buy block has scrolled out of view above
   useEffect(() => {
-    document.documentElement.style.setProperty("--yellow", tweaks.accentColor);
-  }, [tweaks.accentColor]);
+    const el = buyRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(([entry]) => {
+      setPastBuy(!entry.isIntersecting && entry.boundingClientRect.top < 0);
+    }, { threshold: 0 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const toastTimer = useRef(null);
   const showToast = useCallback((msg) => {
     setToast(msg);
     clearTimeout(toastTimer.current);
-    toastTimer.current = setTimeout(() => setToast(null), 2200);
+    toastTimer.current = setTimeout(() => setToast(null), 3200);
   }, []);
 
   const addToCart = useCallback((product, opts = {}) => {
-    const size = opts.size || product.sizes[0];
-    const flavor = opts.flavor || product.flavors[0];
     const qty = opts.qty || 1;
-    const lineId = `${product.id}-${size}-${flavor}`;
+    const lineId = product.id;
     setCart(prev => {
       const existing = prev.find(i => i.lineId === lineId);
       if (existing) {
@@ -43,7 +38,7 @@ function App() {
       }
       return [...prev, {
         lineId, productId: product.id, name: product.name,
-        price: product.price, size, flavor, qty: Math.min(MAX_QTY, qty)
+        price: product.price, qty: Math.min(MAX_QTY, qty)
       }];
     });
     showToast(`Added: ${product.name}`);
@@ -62,34 +57,23 @@ function App() {
   }, []);
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
-
-  const scrollTo = useCallback((id) => {
-    const el = document.getElementById(id);
-    if (el) window.scrollTo({ top: id === "top" ? 0 : el.offsetTop - 80, behavior: "smooth" });
-  }, []);
-
-  const cardStyleClass = tweaks.cardStyle === "Bordered" ? "" : tweaks.cardStyle === "Soft" ? "cards-soft" : "cards-flat";
+  const openCart = useCallback(() => { setToast(null); setCartOpen(true); }, []);
 
   return (
-    <div className={cardStyleClass}>
-      <window.Nav cartCount={cartCount} onCartOpen={() => setCartOpen(true)} onScrollTo={scrollTo}/>
+    <div>
+      <window.Nav cartCount={cartCount} onCartOpen={openCart}/>
       <main>
-        <window.Hero onShop={() => scrollTo("shop")} variant={tweaks.heroVariant}/>
-        <window.ProductGrid onOpen={setModalProduct} onQuickAdd={addToCart}/>
-        {tweaks.showStripe && <window.Stripe/>}
+        <window.Hero/>
+        <window.ProductGrid onQuickAdd={addToCart} buyRef={buyRef}/>
+        <window.Stripe/>
         <window.Process/>
         <window.Story/>
         <window.Reviews/>
       </main>
       <window.Footer/>
 
-      {modalProduct && (
-        <window.ProductModal
-          product={modalProduct}
-          onClose={() => setModalProduct(null)}
-          onAdd={addToCart}
-        />
-      )}
+      <window.StickyBuy product={window.PRODUCTS[0]} onAdd={addToCart} visible={pastBuy && !cartOpen}/>
+
       {cartOpen && (
         <window.CartDrawer
           cart={cart}
@@ -98,22 +82,7 @@ function App() {
           onRemove={removeItem}
         />
       )}
-      {toast && <window.Toast message={toast}/>}
-
-      <window.TweaksPanel title="Tweaks">
-        <window.TweakSection title="Theme">
-          <window.TweakColor label="Accent color" value={tweaks.accentColor} onChange={v => setTweak("accentColor", v)}/>
-        </window.TweakSection>
-        <window.TweakSection title="Sections">
-          <window.TweakToggle label="Marquee stripe" value={tweaks.showStripe} onChange={v => setTweak("showStripe", v)}/>
-        </window.TweakSection>
-        <window.TweakSection title="Demo">
-          <window.TweakButton label="Empty cart" onClick={() => setCart([])}/>
-          <window.TweakButton label="Add Farfalle to cart" onClick={() => {
-            addToCart(window.PRODUCTS[0], { qty: 1 });
-          }}/>
-        </window.TweakSection>
-      </window.TweaksPanel>
+      {toast && <window.Toast message={toast} onView={openCart}/>}
     </div>
   );
 }

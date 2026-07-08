@@ -13,304 +13,11 @@ function PastaShape({
   color = "#E8C896"
 }) {
   const stroke = "#001E43";
-  if (id === "rigatoni") {
-    return /*#__PURE__*/React.createElement("svg", {
-      viewBox: "0 0 200 200",
-      fill: "none"
-    }, /*#__PURE__*/React.createElement("ellipse", {
-      cx: "100",
-      cy: "100",
-      rx: "55",
-      ry: "80",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "3"
-    }), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "100",
-      cy: "40",
-      rx: "55",
-      ry: "14",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "3"
-    }), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "100",
-      cy: "40",
-      rx: "42",
-      ry: "9",
-      fill: "#fff",
-      opacity: "0.4"
-    }), [60, 72, 84, 96, 108, 120, 132].map(y => /*#__PURE__*/React.createElement("line", {
-      key: y,
-      x1: "50",
-      y1: y,
-      x2: "150",
-      y2: y,
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.35"
-    })), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "100",
-      cy: "180",
-      rx: "55",
-      ry: "14",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "3"
-    }));
-  }
-  if (id === "fusilli") {
-    return /*#__PURE__*/React.createElement("svg", {
-      viewBox: "0 0 200 200",
-      fill: "none"
-    }, /*#__PURE__*/React.createElement("path", {
-      d: "M 80 30 Q 130 50 80 70 Q 130 90 80 110 Q 130 130 80 150 Q 130 170 80 180",
-      stroke: color,
-      strokeWidth: "36",
-      strokeLinecap: "round",
-      fill: "none"
-    }), /*#__PURE__*/React.createElement("path", {
-      d: "M 80 30 Q 130 50 80 70 Q 130 90 80 110 Q 130 130 80 150 Q 130 170 80 180",
-      stroke: stroke,
-      strokeWidth: "38",
-      strokeLinecap: "round",
-      fill: "none",
-      opacity: "0.0"
-    }), /*#__PURE__*/React.createElement("path", {
-      d: "M 80 30 Q 130 50 80 70 Q 130 90 80 110 Q 130 130 80 150 Q 130 170 80 180",
-      stroke: stroke,
-      strokeWidth: "2.5",
-      strokeLinecap: "round",
-      fill: "none"
-    }));
-  }
-  if (id === "spaghetti") {
-    return /*#__PURE__*/React.createElement("svg", {
-      viewBox: "0 0 200 200",
-      fill: "none"
-    }, [40, 55, 70, 85, 100, 115, 130, 145, 160].map((x, i) => /*#__PURE__*/React.createElement("path", {
-      key: i,
-      d: `M ${x} 20 Q ${x + (i % 2 ? 6 : -6)} 100 ${x + (i % 3 ? -3 : 5)} 180`,
-      stroke: color,
-      strokeWidth: "3",
-      fill: "none"
-    })), /*#__PURE__*/React.createElement("rect", {
-      x: "30",
-      y: "80",
-      width: "140",
-      height: "40",
-      fill: "#CC0000",
-      stroke: stroke,
-      strokeWidth: "2"
-    }), /*#__PURE__*/React.createElement("text", {
-      x: "100",
-      y: "106",
-      textAnchor: "middle",
-      fontFamily: "Fraunces, serif",
-      fontStyle: "italic",
-      fontWeight: "900",
-      fontSize: "20",
-      fill: "#FAF3E3"
-    }, "PAWSTA"));
-  }
-  if (id === "lasagna") {
-    return /*#__PURE__*/React.createElement("svg", {
-      viewBox: "0 0 200 200",
-      fill: "none"
-    }, /*#__PURE__*/React.createElement("rect", {
-      x: "30",
-      y: "50",
-      width: "140",
-      height: "100",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "3",
-      rx: "4"
-    }), /*#__PURE__*/React.createElement("path", {
-      d: "M 30 50 L 35 45 L 40 50 L 45 45 L 50 50 L 55 45 L 60 50 L 65 45 L 70 50 L 75 45 L 80 50 L 85 45 L 90 50 L 95 45 L 100 50 L 105 45 L 110 50 L 115 45 L 120 50 L 125 45 L 130 50 L 135 45 L 140 50 L 145 45 L 150 50 L 155 45 L 160 50 L 165 45 L 170 50",
-      stroke: stroke,
-      strokeWidth: "2",
-      fill: color
-    }), /*#__PURE__*/React.createElement("path", {
-      d: "M 30 150 L 35 155 L 40 150 L 45 155 L 50 150 L 55 155 L 60 150 L 65 155 L 70 150 L 75 155 L 80 150 L 85 155 L 90 150 L 95 155 L 100 150 L 105 155 L 110 150 L 115 155 L 120 150 L 125 155 L 130 150 L 135 155 L 140 150 L 145 155 L 150 150 L 155 155 L 160 150 L 165 155 L 170 150",
-      stroke: stroke,
-      strokeWidth: "2",
-      fill: color
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "30",
-      y1: "80",
-      x2: "170",
-      y2: "80",
-      stroke: stroke,
-      strokeWidth: "1",
-      opacity: "0.3"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "30",
-      y1: "120",
-      x2: "170",
-      y2: "120",
-      stroke: stroke,
-      strokeWidth: "1",
-      opacity: "0.3"
-    }));
-  }
-  if (id === "orecchiette") {
-    return /*#__PURE__*/React.createElement("svg", {
-      viewBox: "0 0 200 200",
-      fill: "none"
-    }, /*#__PURE__*/React.createElement("ellipse", {
-      cx: "65",
-      cy: "80",
-      rx: "32",
-      ry: "28",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "2.5"
-    }), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "65",
-      cy: "78",
-      rx: "22",
-      ry: "18",
-      fill: stroke,
-      opacity: "0.15"
-    }), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "135",
-      cy: "80",
-      rx: "32",
-      ry: "28",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "2.5"
-    }), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "135",
-      cy: "78",
-      rx: "22",
-      ry: "18",
-      fill: stroke,
-      opacity: "0.15"
-    }), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "100",
-      cy: "135",
-      rx: "32",
-      ry: "28",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "2.5"
-    }), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "100",
-      cy: "133",
-      rx: "22",
-      ry: "18",
-      fill: stroke,
-      opacity: "0.15"
-    }));
-  }
-  if (id === "gnocchi") {
-    return /*#__PURE__*/React.createElement("svg", {
-      viewBox: "0 0 200 200",
-      fill: "none"
-    }, /*#__PURE__*/React.createElement("ellipse", {
-      cx: "60",
-      cy: "100",
-      rx: "28",
-      ry: "22",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "2.5"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "42",
-      y1: "92",
-      x2: "78",
-      y2: "92",
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.4"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "42",
-      y1: "100",
-      x2: "78",
-      y2: "100",
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.4"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "42",
-      y1: "108",
-      x2: "78",
-      y2: "108",
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.4"
-    }), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "100",
-      cy: "80",
-      rx: "28",
-      ry: "22",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "2.5"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "82",
-      y1: "72",
-      x2: "118",
-      y2: "72",
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.4"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "82",
-      y1: "80",
-      x2: "118",
-      y2: "80",
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.4"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "82",
-      y1: "88",
-      x2: "118",
-      y2: "88",
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.4"
-    }), /*#__PURE__*/React.createElement("ellipse", {
-      cx: "140",
-      cy: "120",
-      rx: "28",
-      ry: "22",
-      fill: color,
-      stroke: stroke,
-      strokeWidth: "2.5"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "122",
-      y1: "112",
-      x2: "158",
-      y2: "112",
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.4"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "122",
-      y1: "120",
-      x2: "158",
-      y2: "120",
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.4"
-    }), /*#__PURE__*/React.createElement("line", {
-      x1: "122",
-      y1: "128",
-      x2: "158",
-      y2: "128",
-      stroke: stroke,
-      strokeWidth: "1.5",
-      opacity: "0.4"
-    }));
-  }
   // generic farfalle-ish fallback
   return /*#__PURE__*/React.createElement("svg", {
     viewBox: "0 0 200 200",
-    fill: "none"
+    fill: "none",
+    "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M 30 80 L 30 120 L 90 100 L 90 100 L 30 80 Z",
     fill: color,
@@ -352,93 +59,45 @@ function Logo({
   }));
 }
 
-// === ANNOUNCEMENT ===
-function Announce() {
-  const items = ["Free shipping over $50", "Designed in Boston", "Hidden crunch your pup will love", "Built for picky puppies", "Machine washable · crunch survives"];
-  const repeated = [...items, ...items];
-  return /*#__PURE__*/React.createElement("div", {
-    className: "announce"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "announce-track"
-  }, repeated.map((t, i) => /*#__PURE__*/React.createElement("span", {
-    key: i
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "dot"
-  }), t))));
-}
-
 // === NAV ===
 function Nav({
   cartCount,
-  onCartOpen,
-  onScrollTo
+  onCartOpen
 }) {
   return /*#__PURE__*/React.createElement("header", {
     className: "nav"
   }, /*#__PURE__*/React.createElement("div", {
     className: "nav-inner"
   }, /*#__PURE__*/React.createElement("nav", {
-    className: "nav-links"
+    className: "nav-links",
+    "aria-label": "Main"
   }, /*#__PURE__*/React.createElement("a", {
-    onClick: () => onScrollTo("shop")
+    href: "#shop"
   }, "Shop"), /*#__PURE__*/React.createElement("a", {
-    onClick: () => onScrollTo("story")
+    href: "#story"
   }, "Our Story"), /*#__PURE__*/React.createElement("a", {
-    onClick: () => onScrollTo("process")
+    href: "#process"
   }, "How It's Made"), /*#__PURE__*/React.createElement("a", {
-    onClick: () => onScrollTo("reviews")
+    href: "#reviews"
   }, "Reviews")), /*#__PURE__*/React.createElement("a", {
-    onClick: () => onScrollTo("top"),
-    style: {
-      cursor: "pointer"
-    }
+    href: "#top",
+    "aria-label": "Pawsta home"
   }, /*#__PURE__*/React.createElement(Logo, {
     size: 26
   })), /*#__PURE__*/React.createElement("div", {
     className: "nav-actions"
   }, /*#__PURE__*/React.createElement("button", {
     className: "nav-icon-btn",
-    "aria-label": "Search"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2.5"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "11",
-    cy: "11",
-    r: "7"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "m21 21-4.3-4.3"
-  }))), /*#__PURE__*/React.createElement("button", {
-    className: "nav-icon-btn",
-    "aria-label": "Account"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2.5"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "12",
-    cy: "8",
-    r: "4"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M4 21c0-4 4-7 8-7s8 3 8 7"
-  }))), /*#__PURE__*/React.createElement("button", {
-    className: "nav-icon-btn",
     onClick: onCartOpen,
-    "aria-label": "Cart"
+    "aria-label": cartCount > 0 ? `Open basket, ${cartCount} item${cartCount === 1 ? "" : "s"}` : "Open basket"
   }, /*#__PURE__*/React.createElement("svg", {
     width: "18",
     height: "18",
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: "2.5"
+    strokeWidth: "2.5",
+    "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M3 3h2l3 13h12l2-9H6"
   }), /*#__PURE__*/React.createElement("circle", {
@@ -450,15 +109,13 @@ function Nav({
     cy: "20",
     r: "1.5"
   })), /*#__PURE__*/React.createElement("span", null, "Cart"), cartCount > 0 && /*#__PURE__*/React.createElement("span", {
-    className: "cart-count"
+    className: "cart-count",
+    "aria-hidden": "true"
   }, cartCount)))));
 }
 
 // === HERO ===
-function Hero({
-  onShop,
-  theme
-}) {
+function Hero() {
   return /*#__PURE__*/React.createElement("section", {
     className: "hero",
     id: "top"
@@ -470,14 +127,12 @@ function Hero({
     className: "hero-sub"
   }, "A soft plush on the outside, a satisfying crunch hidden inside. We designed it in Boston for our own picky puppy. She hasn't put it down\xA0since."), /*#__PURE__*/React.createElement("div", {
     className: "hero-ctas"
-  }, /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("a", {
     className: "btn btn-primary",
-    onClick: onShop
-  }, "Shop the Farfalle"), /*#__PURE__*/React.createElement("button", {
+    href: "#shop"
+  }, "Shop the Farfalle"), /*#__PURE__*/React.createElement("a", {
     className: "btn btn-ghost",
-    onClick: () => document.getElementById("story").scrollIntoView({
-      behavior: "smooth"
-    })
+    href: "#story"
   }, "Our story")), /*#__PURE__*/React.createElement("div", {
     className: "hero-stats"
   }, /*#__PURE__*/React.createElement("div", {
@@ -490,9 +145,9 @@ function Hero({
     className: "hero-stat"
   }, /*#__PURE__*/React.createElement("span", {
     className: "num"
-  }, "100%"), /*#__PURE__*/React.createElement("span", {
+  }, "24h"), /*#__PURE__*/React.createElement("span", {
     className: "label"
-  }, "Designed in Boston")), /*#__PURE__*/React.createElement("div", {
+  }, "Ships From Boston")), /*#__PURE__*/React.createElement("div", {
     className: "hero-stat"
   }, /*#__PURE__*/React.createElement("span", {
     className: "num"
@@ -509,7 +164,7 @@ function Hero({
   }, /*#__PURE__*/React.createElement("img", {
     className: "kona",
     src: "assets/Kona.webp",
-    alt: "Kona with a Pawsta chew",
+    alt: "A goldendoodle puppy in a play bow, carrying the Farfalle plush in her mouth",
     fetchpriority: "high",
     decoding: "async"
   }))), /*#__PURE__*/React.createElement("div", {
@@ -528,13 +183,15 @@ function Stripe() {
     viewBox: "0 0 24 24",
     fill: "#FFCB31",
     stroke: "#FAF3E3",
-    strokeWidth: "1"
+    strokeWidth: "1",
+    "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M12 2 L14.5 8.5 L21 9 L16 13.5 L17.5 20 L12 16.5 L6.5 20 L8 13.5 L3 9 L9.5 8.5 Z"
   }));
   const repeated = [...items, ...items, ...items];
   return /*#__PURE__*/React.createElement("div", {
-    className: "stripe"
+    className: "stripe",
+    "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("div", {
     className: "stripe-track"
   }, repeated.map((t, i) => /*#__PURE__*/React.createElement(React.Fragment, {
@@ -547,13 +204,11 @@ function Stripe() {
 // === PRODUCT CARD ===
 function ProductCard({
   product,
-  onOpen,
   onQuickAdd
 }) {
   const badgeClass = product.badge === "New" ? "new" : product.badge === "Small Dog" ? "small" : "";
   return /*#__PURE__*/React.createElement("article", {
-    className: "card",
-    onClick: () => onOpen(product)
+    className: "card"
   }, product.badge && /*#__PURE__*/React.createElement("span", {
     className: `card-badge ${badgeClass}`
   }, product.badge), /*#__PURE__*/React.createElement("div", {
@@ -572,14 +227,15 @@ function ProductCard({
       e.stopPropagation();
       onQuickAdd(product);
     },
-    "aria-label": "Quick add"
+    "aria-label": `Add ${product.name} to basket`
   }, /*#__PURE__*/React.createElement("svg", {
     width: "18",
     height: "18",
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: "2.5"
+    strokeWidth: "2.5",
+    "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M12 5v14M5 12h14"
   })))), /*#__PURE__*/React.createElement("div", {
@@ -602,8 +258,6 @@ function FeaturedProduct({
   product,
   onAdd
 }) {
-  const [size, setSize] = useState(product.sizes[0]);
-  const [inside, setInside] = useState(product.flavors[0]);
   const [qty, setQty] = useState(1);
   const gallery = [product.image, product.image2].filter(Boolean);
   const [activeImg, setActiveImg] = useState(product.image);
@@ -623,7 +277,7 @@ function FeaturedProduct({
     key: i,
     className: `featured-thumb ${activeImg === src ? "active" : ""}`,
     onClick: () => setActiveImg(src),
-    "aria-label": `View ${i === 0 ? "top" : "side"}`
+    "aria-label": `View from the ${i === 0 ? "top" : "side"}`
   }, /*#__PURE__*/React.createElement("img", {
     src: src,
     alt: "",
@@ -633,13 +287,15 @@ function FeaturedProduct({
     className: "featured-body"
   }, /*#__PURE__*/React.createElement("span", {
     className: "card-italian"
-  }, product.italian, " \xB7 /", product.name.split(" ")[0].toLowerCase(), "/"), /*#__PURE__*/React.createElement("h3", {
+  }, "Farfalle. Italian for butterfly."), /*#__PURE__*/React.createElement("h3", {
     className: "featured-name"
   }, product.name), /*#__PURE__*/React.createElement("div", {
     className: "featured-rating"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "stars"
-  }, "\u2605\u2605\u2605\u2605\u2606"), " ", product.rating, " \xB7 ", product.reviews, " reviews"), /*#__PURE__*/React.createElement("p", {
+    className: "stars",
+    role: "img",
+    "aria-label": `Rated ${product.rating} out of 5 stars`
+  }, "\u2605\u2605\u2605\u2605\u2605"), " ", product.rating, " \xB7 ", product.reviews, " reviews"), /*#__PURE__*/React.createElement("p", {
     className: "featured-desc"
   }, product.description), /*#__PURE__*/React.createElement("ul", {
     className: "featured-features"
@@ -657,7 +313,8 @@ function FeaturedProduct({
     onClick: () => setQty(Math.max(1, qty - 1)),
     "aria-label": "Decrease quantity"
   }, "\u2212"), /*#__PURE__*/React.createElement("span", {
-    className: "val"
+    className: "val",
+    "aria-live": "polite"
   }, qty), /*#__PURE__*/React.createElement("button", {
     onClick: () => setQty(Math.min(99, qty + 1)),
     "aria-label": "Increase quantity"
@@ -668,19 +325,38 @@ function FeaturedProduct({
       height: 56
     },
     onClick: () => onAdd(product, {
-      size,
-      flavor: inside,
       qty
     })
   }, "Add to cart \xB7 $", (product.price * qty).toFixed(2))), /*#__PURE__*/React.createElement("div", {
     className: "featured-ship"
-  }, "\u2713 One size, fits all pups \xB7 Free shipping over $50 \xB7 30 day happy pup guarantee")));
+  }, "\u2713 Ships from Boston in 24 hours \xB7 30-day happy pup guarantee \xB7 $6 flat shipping, free over $50"), /*#__PURE__*/React.createElement("div", {
+    className: "featured-specs"
+  }, "Plush shell \xB7 hidden crinkle liner \xB7 no-spill stuffing \xB7 one size \xB7 0.4 lb")));
+}
+
+// === STICKY BUY BAR ===
+function StickyBuy({
+  product,
+  onAdd,
+  visible
+}) {
+  if (!visible) return null;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "sticky-buy"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "sb-name"
+  }, product.name, " \xB7 $", product.price.toFixed(2)), /*#__PURE__*/React.createElement("button", {
+    className: "btn btn-primary sb-btn",
+    onClick: () => onAdd(product, {
+      qty: 1
+    })
+  }, "Add to cart"));
 }
 
 // === PRODUCT GRID ===
 function ProductGrid({
-  onOpen,
-  onQuickAdd
+  onQuickAdd,
+  buyRef
 }) {
   const products = window.PRODUCTS;
   const single = products.length === 1;
@@ -698,7 +374,9 @@ function ProductGrid({
     className: "section-eyebrow"
   }, "The Shop \xB7 One perfect plush"), /*#__PURE__*/React.createElement("h2", {
     className: "section-title"
-  }, "Meet the Farfalle."))), single ? /*#__PURE__*/React.createElement(FeaturedProduct, {
+  }, "Meet the Farfalle."))), /*#__PURE__*/React.createElement("div", {
+    ref: buyRef
+  }, single ? /*#__PURE__*/React.createElement(FeaturedProduct, {
     product: products[0],
     onAdd: onQuickAdd
   }) : /*#__PURE__*/React.createElement("div", {
@@ -706,9 +384,8 @@ function ProductGrid({
   }, products.map(p => /*#__PURE__*/React.createElement(ProductCard, {
     key: p.id,
     product: p,
-    onOpen: onOpen,
     onQuickAdd: onQuickAdd
-  })))));
+  }))))));
 }
 
 // === PROCESS ===
@@ -724,7 +401,7 @@ function Process() {
   }, {
     n: "03",
     t: "Crunch Tested",
-    d: "Our chief tester is a very picky puppy named Kona. She personally approves every prototype before it ships."
+    d: "Our chief tester is a very picky puppy. If she loses interest, the design goes back to the drawing board."
   }, {
     n: "04",
     t: "Boxed",
@@ -795,15 +472,18 @@ function Reviews() {
     className: "section-eyebrow"
   }, "From the pack"), /*#__PURE__*/React.createElement("h2", {
     className: "section-title"
-  }, "Reviews from very serious\xA0customers."))), /*#__PURE__*/React.createElement("div", {
+  }, "Very serious\xA0customers."))), /*#__PURE__*/React.createElement("div", {
     className: "review-grid"
   }, window.REVIEWS.map((r, i) => /*#__PURE__*/React.createElement("div", {
     key: i,
     className: "review-card"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "review-stars"
+    className: "review-stars",
+    role: "img",
+    "aria-label": `Rated ${r.rating} out of 5 stars`
   }, "★".repeat(r.rating), /*#__PURE__*/React.createElement("span", {
-    className: "empty"
+    className: "empty",
+    "aria-hidden": "true"
   }, "★".repeat(5 - r.rating))), /*#__PURE__*/React.createElement("p", {
     className: "review-text"
   }, "\"", r.text, "\""), /*#__PURE__*/React.createElement("div", {
@@ -819,23 +499,42 @@ function Reviews() {
 
 // === FOOTER ===
 function Footer() {
+  const cfg = window.PAWSTA_CONFIG || {};
   const [email, setEmail] = useState("");
   const [signedUp, setSignedUp] = useState(false);
   const [shake, setShake] = useState(false);
-  const subscribe = () => {
-    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      setSignedUp(true);
-    } else {
+  const [err, setErr] = useState("");
+  const subscribe = async () => {
+    const v = email.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+      setErr("That doesn't look like an email address.");
       setShake(true);
       setTimeout(() => setShake(false), 500);
+      return;
     }
-  };
-  const jump = id => {
-    const el = document.getElementById(id);
-    if (el) window.scrollTo({
-      top: el.offsetTop - 80,
-      behavior: "smooth"
-    });
+    setErr("");
+    if (cfg.newsletterEndpoint) {
+      try {
+        const res = await fetch(cfg.newsletterEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            email: v
+          })
+        });
+        if (!res.ok) throw new Error();
+        setSignedUp(true);
+      } catch {
+        setErr("That didn't go through. Mind trying again?");
+      }
+    } else {
+      // No list endpoint yet: hand off to a prefilled email so no address is silently dropped.
+      window.location.href = `mailto:${cfg.supportEmail}?subject=${encodeURIComponent("Add me to the Pawsta list")}&body=${encodeURIComponent(`Please add ${v} to the newsletter. Thanks!`)}`;
+      setSignedUp(true);
+    }
   };
   return /*#__PURE__*/React.createElement("footer", {
     className: "footer"
@@ -849,20 +548,27 @@ function Footer() {
     className: "footer-tag"
   }, "\"Built for one very picky\xA0puppy.\"", /*#__PURE__*/React.createElement("br", null), "And now, for\xA0yours."), signedUp ? /*#__PURE__*/React.createElement("div", {
     className: "newsletter-done"
-  }, "\u2713 You're on the list. Kona approves.") : /*#__PURE__*/React.createElement("div", {
+  }, "\u2713 You're on the list. Kona approves.") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: `newsletter ${shake ? "shake" : ""}`
   }, /*#__PURE__*/React.createElement("input", {
     type: "email",
     placeholder: "your@email.com",
     value: email,
-    onChange: e => setEmail(e.target.value),
+    onChange: e => {
+      setEmail(e.target.value);
+      if (err) setErr("");
+    },
     onKeyDown: e => {
       if (e.key === "Enter") subscribe();
     },
-    "aria-label": "Email address"
+    "aria-label": "Email address",
+    "aria-invalid": !!err
   }), /*#__PURE__*/React.createElement("button", {
     onClick: subscribe
-  }, "Sign me up")), /*#__PURE__*/React.createElement("div", {
+  }, "Sign me up")), err && /*#__PURE__*/React.createElement("div", {
+    className: "newsletter-err",
+    role: "alert"
+  }, err)), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       opacity: 0.5,
@@ -870,137 +576,20 @@ function Footer() {
       letterSpacing: "0.06em"
     }
   }, "We email rarely. New colors, restocks, the occasional puppy photo.")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Shop"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    onClick: () => jump("shop")
-  }, "The Farfalle Plush")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Gift Cards")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Bundles")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Coming Soon")))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Pawsta"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    onClick: () => jump("story")
+    href: "#shop"
+  }, "The Farfalle Plush")))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Pawsta"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#story"
   }, "Our Story")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    onClick: () => jump("process")
+    href: "#process"
   }, "How It's Made")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    onClick: () => jump("reviews")
-  }, "The Pack")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Press")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Wholesale")))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Help"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Contact")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Shipping")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Returns")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "Care Guide")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", null, "FAQ"))))), /*#__PURE__*/React.createElement("div", {
+    href: "#reviews"
+  }, "The Pack")))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Help"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: `mailto:${cfg.supportEmail}`
+  }, "Contact")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#shop"
+  }, "Shipping & Returns"))))), /*#__PURE__*/React.createElement("div", {
     className: "footer-bottom"
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Pawsta Co. \xB7 Boston, MA \xB7 Designed in Boston"), /*#__PURE__*/React.createElement("span", null, "Supervise your pet \xB7 Remove tags before play \xB7 Made with love"))));
-}
-
-// === PRODUCT MODAL ===
-function ProductModal({
-  product,
-  onClose,
-  onAdd
-}) {
-  const [size, setSize] = useState(product.sizes[0]);
-  const [flavor, setFlavor] = useState(product.flavors[0]);
-  const [qty, setQty] = useState(1);
-  useEffect(() => {
-    const onKey = e => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
-  return /*#__PURE__*/React.createElement("div", {
-    className: "modal-backdrop",
-    onClick: onClose
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "modal",
-    onClick: e => e.stopPropagation()
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "modal-close",
-    onClick: onClose,
-    "aria-label": "Close"
-  }, "\u2715"), /*#__PURE__*/React.createElement("div", {
-    className: "modal-media"
-  }, product.image ? /*#__PURE__*/React.createElement("img", {
-    src: product.image,
-    alt: product.name
-  }) : /*#__PURE__*/React.createElement("div", {
-    style: {
-      width: "80%",
-      height: "80%"
-    }
-  }, /*#__PURE__*/React.createElement(PastaShape, {
-    id: product.id,
-    color: product.swatch
-  }))), /*#__PURE__*/React.createElement("div", {
-    className: "modal-body"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "modal-italian"
-  }, product.italian, " \xB7 /", product.name.split(" ")[0].toLowerCase(), "/"), /*#__PURE__*/React.createElement("h2", {
-    className: "modal-title"
-  }, product.name), /*#__PURE__*/React.createElement("p", {
-    className: "modal-tagline"
-  }, product.tagline), /*#__PURE__*/React.createElement("div", {
-    className: "modal-price-row"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "modal-price"
-  }, "$", product.price.toFixed(2)), /*#__PURE__*/React.createElement("span", {
-    className: "modal-rating"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "stars"
-  }, "\u2605\u2605\u2605\u2605\u2605"), product.rating, " (", product.reviews, " reviews)")), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0,
-      fontSize: 14,
-      lineHeight: 1.55,
-      color: "var(--ink)",
-      opacity: 0.85
-    }
-  }, product.description), /*#__PURE__*/React.createElement("div", {
-    className: "option-group"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "option-label"
-  }, /*#__PURE__*/React.createElement("span", null, "Size"), /*#__PURE__*/React.createElement("span", {
-    className: "picked"
-  }, size)), /*#__PURE__*/React.createElement("div", {
-    className: "option-pills"
-  }, product.sizes.map(s => /*#__PURE__*/React.createElement("button", {
-    key: s,
-    className: `option-pill ${size === s ? "active" : ""}`,
-    onClick: () => setSize(s)
-  }, s)))), /*#__PURE__*/React.createElement("div", {
-    className: "option-group"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "option-label"
-  }, /*#__PURE__*/React.createElement("span", null, "Inside"), /*#__PURE__*/React.createElement("span", {
-    className: "picked"
-  }, flavor)), /*#__PURE__*/React.createElement("div", {
-    className: "option-pills"
-  }, product.flavors.map(f => /*#__PURE__*/React.createElement("button", {
-    key: f,
-    className: `option-pill ${flavor === f ? "active" : ""}`,
-    onClick: () => setFlavor(f)
-  }, f)))), /*#__PURE__*/React.createElement("div", {
-    className: "qty-row"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "qty-stepper"
-  }, /*#__PURE__*/React.createElement("button", {
-    onClick: () => setQty(Math.max(1, qty - 1))
-  }, "\u2212"), /*#__PURE__*/React.createElement("span", {
-    className: "val"
-  }, qty), /*#__PURE__*/React.createElement("button", {
-    onClick: () => setQty(qty + 1)
-  }, "+")), /*#__PURE__*/React.createElement("button", {
-    className: "btn btn-primary modal-add",
-    onClick: () => {
-      onAdd(product, {
-        size,
-        flavor,
-        qty
-      });
-      onClose();
-    }
-  }, "Add to cart \xB7 $", (product.price * qty).toFixed(2))), /*#__PURE__*/React.createElement("dl", {
-    className: "modal-meta"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Durability"), /*#__PURE__*/React.createElement("dd", null, /*#__PURE__*/React.createElement("span", {
-    className: "durability-bar"
-  }, [1, 2, 3, 4, 5].map(i => /*#__PURE__*/React.createElement("span", {
-    key: i,
-    className: `pip ${i <= product.durability ? "on" : ""}`
-  }))))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Avg. Play Time"), /*#__PURE__*/React.createElement("dd", null, product.chewTime, " min/session")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Materials"), /*#__PURE__*/React.createElement("dd", null, product.materials)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Net Weight"), /*#__PURE__*/React.createElement("dd", null, product.weight))))));
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Pawsta Co. \xB7 Designed in Boston, MA"), /*#__PURE__*/React.createElement("span", null, "Supervise play \xB7 Remove tags first"))));
 }
 
 // === CART DRAWER ===
@@ -1010,12 +599,15 @@ function CartDrawer({
   onUpdateQty,
   onRemove
 }) {
+  const cfg = window.PAWSTA_CONFIG || {};
+  const closeRef = useRef(null);
   useEffect(() => {
     const onKey = e => {
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+    if (closeRef.current) closeRef.current.focus();
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
@@ -1025,29 +617,56 @@ function CartDrawer({
   const FREE_SHIP = 50;
   const remaining = Math.max(0, FREE_SHIP - subtotal);
   const progress = Math.min(100, subtotal / FREE_SHIP * 100);
+  const price = (window.PRODUCTS[0] || {
+    price: 12.98
+  }).price;
+  const moreToFree = Math.ceil(remaining / price);
+  const checkout = () => {
+    if (cfg.checkoutUrl) {
+      const qty = cart.reduce((n, i) => n + i.qty, 0);
+      window.location.assign(`${cfg.checkoutUrl}${cfg.checkoutUrl.includes("?") ? "&" : "?"}quantity=${qty}`);
+    } else {
+      const lines = cart.map(i => `${i.qty} × ${i.name} ($${(i.price * i.qty).toFixed(2)})`).join("\n");
+      const total = (subtotal + (subtotal >= FREE_SHIP ? 0 : 6)).toFixed(2);
+      window.location.href = `mailto:${cfg.supportEmail}?subject=${encodeURIComponent("Pawsta order")}&body=${encodeURIComponent(`Hi! I'd like to order:\n\n${lines}\n\nTotal with shipping: $${total}\n\nMy shipping address:\n`)}`;
+    }
+  };
+  const goShop = () => {
+    onClose();
+    const el = document.getElementById("shop");
+    if (el) window.scrollTo({
+      top: el.offsetTop - 80,
+      behavior: "smooth"
+    });
+  };
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "cart-backdrop",
     onClick: onClose
   }), /*#__PURE__*/React.createElement("aside", {
-    className: "cart-drawer"
+    className: "cart-drawer",
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-label": "Shopping basket"
   }, /*#__PURE__*/React.createElement("div", {
     className: "cart-header"
   }, /*#__PURE__*/React.createElement("h3", null, "Your basket"), /*#__PURE__*/React.createElement("button", {
+    ref: closeRef,
     className: "modal-close",
     style: {
       position: "static"
     },
-    onClick: onClose
+    onClick: onClose,
+    "aria-label": "Close basket"
   }, "\u2715")), cart.length === 0 ? /*#__PURE__*/React.createElement("div", {
     className: "cart-empty"
   }, /*#__PURE__*/React.createElement("div", {
     className: "big"
-  }, "No pasta yet."), /*#__PURE__*/React.createElement("div", {
+  }, "Your basket is empty."), /*#__PURE__*/React.createElement("div", {
     className: "sub"
-  }, "Your basket is emptier than a cooked pot on Sunday night. Pick a shape."), /*#__PURE__*/React.createElement("button", {
+  }, "The Farfalle is waiting."), /*#__PURE__*/React.createElement("button", {
     className: "btn btn-primary",
-    onClick: onClose
-  }, "Start shopping")) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    onClick: goShop
+  }, "Meet the Farfalle")) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "cart-items"
   }, cart.map(item => {
     const product = window.PRODUCTS.find(p => p.id === item.productId);
@@ -1058,7 +677,7 @@ function CartDrawer({
       className: "thumb"
     }, product.image ? /*#__PURE__*/React.createElement("img", {
       src: product.image,
-      alt: item.name
+      alt: ""
     }) : /*#__PURE__*/React.createElement(PastaShape, {
       id: product.id,
       color: product.swatch
@@ -1067,22 +686,24 @@ function CartDrawer({
     }, /*#__PURE__*/React.createElement("div", {
       className: "name"
     }, item.name), /*#__PURE__*/React.createElement("div", {
-      className: "opts"
-    }, item.size, " \xB7 ", item.flavor), /*#__PURE__*/React.createElement("div", {
       className: "qty-mini"
     }, /*#__PURE__*/React.createElement("button", {
-      onClick: () => onUpdateQty(item.lineId, item.qty - 1)
+      onClick: () => onUpdateQty(item.lineId, item.qty - 1),
+      "aria-label": `Decrease ${item.name} quantity`
     }, "\u2212"), /*#__PURE__*/React.createElement("span", {
-      className: "v"
+      className: "v",
+      "aria-live": "polite"
     }, item.qty), /*#__PURE__*/React.createElement("button", {
-      onClick: () => onUpdateQty(item.lineId, item.qty + 1)
+      onClick: () => onUpdateQty(item.lineId, item.qty + 1),
+      "aria-label": `Increase ${item.name} quantity`
     }, "+"))), /*#__PURE__*/React.createElement("div", {
       className: "cart-right"
     }, /*#__PURE__*/React.createElement("div", {
       className: "price"
     }, "$", (item.price * item.qty).toFixed(2)), /*#__PURE__*/React.createElement("button", {
       className: "remove",
-      onClick: () => onRemove(item.lineId)
+      onClick: () => onRemove(item.lineId),
+      "aria-label": `Remove ${item.name} from basket`
     }, "Remove")));
   })), /*#__PURE__*/React.createElement("div", {
     className: "cart-footer"
@@ -1097,7 +718,7 @@ function CartDrawer({
       display: "flex",
       justifyContent: "space-between"
     }
-  }, /*#__PURE__*/React.createElement("span", null, remaining > 0 ? `$${remaining.toFixed(2)} from free shipping` : "🎉 Free shipping unlocked!"), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", null, remaining > 0 ? `${moreToFree} more Farfalle${moreToFree === 1 ? "" : "s"} unlocks free shipping` : "🎉 Free shipping unlocked!"), /*#__PURE__*/React.createElement("span", {
     style: {
       fontFamily: "JetBrains Mono",
       opacity: 0.7
@@ -1126,18 +747,26 @@ function CartDrawer({
     style: {
       width: "100%",
       height: 56
-    }
-  }, "Checkout")))));
+    },
+    onClick: checkout
+  }, "Checkout"), !cfg.checkoutUrl && /*#__PURE__*/React.createElement("div", {
+    className: "checkout-note"
+  }, "Orders go by email while our card checkout is in the works. We confirm within a day.")))));
 }
 
 // === TOAST ===
 function Toast({
-  message
+  message,
+  onView
 }) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: "toast"
+  return /*#__PURE__*/React.createElement("button", {
+    className: "toast",
+    role: "status",
+    "aria-live": "polite",
+    onClick: onView
   }, /*#__PURE__*/React.createElement("span", {
-    className: "check"
+    className: "check",
+    "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("svg", {
     width: "12",
     height: "12",
@@ -1147,23 +776,24 @@ function Toast({
     strokeWidth: "3.5"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M5 12l5 5L20 7"
-  }))), message);
+  }))), message, /*#__PURE__*/React.createElement("span", {
+    className: "toast-action"
+  }, "View basket \u2192"));
 }
 Object.assign(window, {
   PastaShape,
   Logo,
-  Announce,
   Nav,
   Hero,
   Stripe,
   ProductCard,
   FeaturedProduct,
+  StickyBuy,
   ProductGrid,
   Process,
   Story,
   Reviews,
   Footer,
-  ProductModal,
   CartDrawer,
   Toast
 });
