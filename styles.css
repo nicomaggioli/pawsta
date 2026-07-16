@@ -1791,3 +1791,7 @@ button.toast { cursor: pointer; font-family: "Archivo", sans-serif; }
   .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
   .footer-grid > div:first-child { grid-column: 1 / -1; }
 }
+
+/* Checkout email-address fallback line */
+.checkout-note .checkout-addr { font-weight: 700; color: var(--head, var(--navy)); }
+.checkout-note a { color: var(--red); font-weight: 700; }

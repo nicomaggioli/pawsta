@@ -601,6 +601,7 @@ function CartDrawer({
 }) {
   const cfg = window.PAWSTA_CONFIG || {};
   const closeRef = useRef(null);
+  const [mailTried, setMailTried] = useState(false);
   useEffect(() => {
     const onKey = e => {
       if (e.key === "Escape") onClose();
@@ -629,6 +630,7 @@ function CartDrawer({
       const lines = cart.map(i => `${i.qty} × ${i.name} ($${(i.price * i.qty).toFixed(2)})`).join("\n");
       const total = (subtotal + (subtotal >= FREE_SHIP ? 0 : 6)).toFixed(2);
       window.location.href = `mailto:${cfg.supportEmail}?subject=${encodeURIComponent("Pawsta order")}&body=${encodeURIComponent(`Hi! I'd like to order:\n\n${lines}\n\nTotal with shipping: $${total}\n\nMy shipping address:\n`)}`;
+      setMailTried(true);
     }
   };
   const goShop = () => {
@@ -751,7 +753,11 @@ function CartDrawer({
     onClick: checkout
   }, "Checkout"), !cfg.checkoutUrl && /*#__PURE__*/React.createElement("div", {
     className: "checkout-note"
-  }, "Orders go by email while our card checkout is in the works. We confirm within a day.")))));
+  }, "Orders go by email while our card checkout is in the works. We confirm within a day.", mailTried && /*#__PURE__*/React.createElement("span", {
+    className: "checkout-addr"
+  }, /*#__PURE__*/React.createElement("br", null), "No email app opened? Write to ", /*#__PURE__*/React.createElement("a", {
+    href: `mailto:${cfg.supportEmail}`
+  }, cfg.supportEmail), " with your order."))))));
 }
 
 // === TOAST ===

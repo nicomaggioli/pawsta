@@ -391,6 +391,7 @@ function Footer() {
 function CartDrawer({ cart, onClose, onUpdateQty, onRemove }) {
   const cfg = window.PAWSTA_CONFIG || {};
   const closeRef = useRef(null);
+  const [mailTried, setMailTried] = useState(false);
   useEffect(() => {
     const onKey = (e) => {if (e.key === "Escape") onClose();};
     document.addEventListener("keydown", onKey);
@@ -414,6 +415,7 @@ function CartDrawer({ cart, onClose, onUpdateQty, onRemove }) {
       const lines = cart.map((i) => `${i.qty} × ${i.name} ($${(i.price * i.qty).toFixed(2)})`).join("\n");
       const total = (subtotal + (subtotal >= FREE_SHIP ? 0 : 6)).toFixed(2);
       window.location.href = `mailto:${cfg.supportEmail}?subject=${encodeURIComponent("Pawsta order")}&body=${encodeURIComponent(`Hi! I'd like to order:\n\n${lines}\n\nTotal with shipping: $${total}\n\nMy shipping address:\n`)}`;
+      setMailTried(true);
     }
   };
 
@@ -478,7 +480,10 @@ function CartDrawer({ cart, onClose, onUpdateQty, onRemove }) {
               </div>
               <button className="btn btn-primary" style={{ width: "100%", height: 56 }} onClick={checkout}>Checkout</button>
               {!cfg.checkoutUrl &&
-              <div className="checkout-note">Orders go by email while our card checkout is in the works. We confirm within a day.</div>
+              <div className="checkout-note">
+                Orders go by email while our card checkout is in the works. We confirm within a day.
+                {mailTried && <span className="checkout-addr"><br />No email app opened? Write to <a href={`mailto:${cfg.supportEmail}`}>{cfg.supportEmail}</a> with your order.</span>}
+              </div>
               }
             </div>
           </React.Fragment>
